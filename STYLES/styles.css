@@ -1,0 +1,85 @@
+:root {
+	--main: #ff9d00;
+	--background: #ffefc2;
+	--text: #523200;
+	--accent: #ffd600;
+	--logoFont: "Grandstander", cursive;
+	--bodyFont: "Nunito", sans-serif;
+}
+
+body {
+	font-family: var(--bodyFont);
+	color: var(--text);
+	background-color: var(--background);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.outsideContainer {
+	width: 70%;
+}
+
+h1 {
+	font-family: var(--logoFont);
+	font-weight: 700;
+	font-size: 4rem;
+	text-align: center;
+	color: var(--main);
+}
+
+h3 {
+	text-align: center;
+	font-size: 3rem;
+	text-decoration: underline;
+}
+
+.grand {
+	font-family: var(--logoFont);
+	font-size: 2rem;
+	text-align: center;
+	padding: 0;
+	margin-bottom: 20px;
+}
+
+.nunito {
+	font-family: var(--bodyFont);
+	font-size: 2rem;
+	text-align: center;
+	margin-bottom: 3rem;
+	padding: 0;
+	margin: 0;
+}
+
+.colorContainer {
+	font-size: 1.2rem;
+}
+
+.colorRow {
+	display: flex;
+	justify-content: space-evenly;
+	text-align: center;
+}
+
+.colorSquare {
+	height: 200px;
+	width: 200px;
+	border-radius: 2rem;
+}
+
+.description {
+	width: 200px;
+}
+
+.main {
+	background-color: var(--main);
+}
+.background {
+	border: 1px solid black;
+}
+.text {
+	background-color: var(--text);
+}
+.accent {
+	background-color: var(--accent);
+}
