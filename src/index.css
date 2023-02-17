@@ -17,4 +17,5 @@ body {
 	min-height: 100%;
 	font-family: var(--bodyFont);
 	background-color: var(--background);
+	box-sizing: border-box;
 }

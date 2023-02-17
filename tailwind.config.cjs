@@ -6,6 +6,12 @@ module.exports = {
 			grandStand: ["Grandstander", "cursive"],
 			nunito: ["Nunito", "sans-serif"],
 		},
+		screens: {
+			sm: "480px",
+			md: "768px",
+			lg: "976px",
+			xl: "1440px",
+		},
 		extend: {
 			colors: {
 				main: "#ff9d00",
