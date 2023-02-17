@@ -1,11 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
-interface recipeInitialState {
+interface RecipeInitialState {
 	value: [];
 }
 
-const initialState: recipeInitialState = {
+const initialState: RecipeInitialState = {
 	value: [],
 };
 
