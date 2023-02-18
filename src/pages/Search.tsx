@@ -1,25 +1,15 @@
-import { OptionHTMLAttributes } from "react";
+import React from "react";
 import { useAppDispatch, useAppSelector } from "../functions/hooks";
 import { useState, useEffect } from "react";
-import { searchRecipe, reset } from "../reducers/RecipieSlice";
+import { searchRecipe, reset } from "../reducers/RecipeSlice";
 import RecipeCard from "../components/RecipeCard";
+import DropDownSearch from "../components/DropDownSearch";
 
 const Search = () => {
-	const recipes = useAppSelector((state) => state.recipe);
+	const recipes = useAppSelector((state) => state.recipe.results);
 	const dispatch = useAppDispatch();
 
 	const [recipeToSearch, setRecipeToSearch] = useState<string>("");
-
-	// interface OptionProps extends OptionHTMLAttributes<HTMLOptionElement> {
-	// 	name: string;
-	// 	value: string;
-	// }
-
-	// const cuisineOption = ({name, value, ...props}:OptionProps) {
-	// 	return (
-	// 		<option {...props} name="boy"></option>
-	// 	)
-	// }
 
 	interface JSON {
 		results: [
@@ -33,40 +23,25 @@ const Search = () => {
 	}
 
 	interface RecipeProps {
-		id: number;
-		title: string;
-		image: string;
-		imageType: string;
+		id?: number;
+		title?: string;
+		image?: string;
+		imageType?: string;
 	}
 
 	const apiCall = async () => {
 		const url: string = import.meta.env.VITE_SEARCH_API + recipeToSearch;
-		const rawData = await fetch(url);
+		const rawData: Response = await fetch(url);
 		const json: JSON = await rawData.json();
 		console.log(json.results);
-		dispatch(searchRecipe(json.results));
+		dispatch(searchRecipe(json));
 	};
 
 	return (
 		<div className="flex flex-col">
 			<div>
 				{/* Advanced Search */}
-				<div>
-					<div>
-						<label htmlFor="cuisine"></label>
-						<select id="cuisine" name="cuisine">
-							<option value="african" name="cuisine">
-								African
-							</option>
-							<option value="american" name="cuisine">
-								American
-							</option>
-							<option value="british" name="cuisine">
-								British
-							</option>
-						</select>
-					</div>
-				</div>
+				<DropDownSearch />
 				{/* Input field and button */}
 				<div>
 					<input
