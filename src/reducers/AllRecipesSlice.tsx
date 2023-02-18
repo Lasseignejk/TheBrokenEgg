@@ -4,23 +4,16 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 interface RecipeInitialState {
 	results: [
 		{
-			id: number;
-			title: string;
-			image: string;
-			imageType: string;
+			id?: number;
+			title?: string;
+			image?: string;
+			imageType?: string;
 		}
 	];
 }
 
 const initialState: RecipeInitialState = {
-	results: [
-		{
-			id: 0,
-			title: "",
-			image: "",
-			imageType: "",
-		},
-	],
+	results: [{}],
 };
 
 // Use the PayloadAction type to declare the contents of 'action.payload'

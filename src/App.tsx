@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import Recipe from "./pages/Recipe";
 import Search from "./pages/Search";
 import About from "./pages/About";
+import ErrorPage from "./pages/ErrorPage";
 function App() {
 	return (
 		<div className="flex flex-col justify-between min-h-screen">
@@ -18,6 +19,7 @@ function App() {
 						<Route index element={<Search />} />
 						<Route path=":recipeid" element={<Recipe />} />
 					</Route>
+					<Route path="*" element={<ErrorPage />} />
 				</Routes>
 			</div>
 			<div>

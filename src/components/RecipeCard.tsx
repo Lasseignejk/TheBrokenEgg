@@ -3,48 +3,13 @@ import { Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../functions/hooks";
 import { searchForInstructions } from "../reducers/InstructionsSlice";
 import { searchForInformation } from "../reducers/InformationSlice";
-
-interface RecipeProps {
-	id?: number;
-	title?: string;
-	image?: string;
-	imageType?: string;
-}
+import {
+	JSONInformation,
+	JSONInstructions,
+	RecipeProps,
+} from "../functions/RecipeCardInterfaces";
 
 const RecipeCard = ({ id, title, image }: RecipeProps) => {
-	interface JSONInstructions {
-		name: string;
-		steps: [
-			{
-				ingredients: [
-					{
-						image: string;
-						name: string;
-					}
-				];
-				number: number;
-				step: string;
-			}
-		];
-	}
-
-	interface JSONInformation {
-		id: number;
-		title: string;
-		image: string;
-		servings: number;
-		readyInMinutes: number;
-		sourceName: string;
-		sourceURL: string;
-		spoonacularScore: number;
-		extendedIngredients: [
-			{
-				name: string;
-				original: string;
-			}
-		];
-	}
-
 	const dispatch = useAppDispatch();
 
 	const apiCall = async () => {
