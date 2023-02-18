@@ -1,13 +1,14 @@
 import React from "react";
 import { useAppDispatch, useAppSelector } from "../functions/hooks";
 import { useState, useEffect } from "react";
-import { searchRecipe, reset } from "../reducers/RecipeSlice";
+import { searchRecipe, reset } from "../reducers/AllRecipesSlice";
 import RecipeCard from "../components/RecipeCard";
 import DropDownSearch from "../components/DropDownSearch";
 import { cuisineOptions, dietOptions } from "../../data";
 
 const Search = () => {
-	const recipes = useAppSelector((state) => state.recipe.results);
+	const recipes = useAppSelector((state) => state.recipes.results);
+	const [cusineOptions, setCuisineOptions] = useState(cuisineOptions);
 	const dispatch = useAppDispatch();
 
 	const [recipeToSearch, setRecipeToSearch] = useState<string>("");
@@ -31,7 +32,7 @@ const Search = () => {
 	}
 
 	const apiCall = async () => {
-		const url: string = import.meta.env.VITE_SEARCH_API + recipeToSearch;
+		const url: string = import.meta.env.VITE_SEARCH_ALL_API + recipeToSearch;
 		const rawData: Response = await fetch(url);
 		const json: JSON = await rawData.json();
 		console.log(json.results);
@@ -47,8 +48,9 @@ const Search = () => {
 		<div className="flex flex-col">
 			<div>
 				{/* Advanced Search */}
-				{/* <DropDownSearch {...props:OptionsProps} />
-				<DropDownSearch {...dietOptions} /> */}
+				{/* Could try maping like the recipes  */}
+				{/* <DropDownSearch {cuisineOptions} />
+				<DropDownSearch {...dietOptions} />  */}
 				{/* Input field and button */}
 				<div>
 					<input

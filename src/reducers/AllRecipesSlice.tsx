@@ -26,14 +26,11 @@ const initialState: RecipeInitialState = {
 // Use the PayloadAction type to declare the contents of 'action.payload'
 // (state, action: PayloadAction<number>)
 
-export const recipeSlice = createSlice({
+export const allRecipesSlice = createSlice({
 	name: "recipes",
 	initialState,
 	reducers: {
 		searchRecipe: (state, action: PayloadAction<RecipeInitialState>) => {
-			return action.payload;
-		},
-		searchOneRecipe: (state, action) => {
 			return action.payload;
 		},
 		reset: (state) => {
@@ -42,6 +39,6 @@ export const recipeSlice = createSlice({
 	},
 });
 
-export const { searchRecipe, searchOneRecipe, reset } = recipeSlice.actions;
+export const { searchRecipe, reset } = allRecipesSlice.actions;
 
-export default recipeSlice.reducer;
+export default allRecipesSlice.reducer;
