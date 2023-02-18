@@ -4,11 +4,10 @@ import { useState, useEffect } from "react";
 import { searchRecipe, reset } from "../reducers/AllRecipesSlice";
 import RecipeCard from "../components/RecipeCard";
 import DropDownSearch from "../components/DropDownSearch";
-import { cuisineOptions, dietOptions } from "../../data";
 
 const Search = () => {
 	const recipes = useAppSelector((state) => state.recipes.results);
-	const [cusineOptions, setCuisineOptions] = useState(cuisineOptions);
+
 	const dispatch = useAppDispatch();
 
 	const [recipeToSearch, setRecipeToSearch] = useState<string>("");

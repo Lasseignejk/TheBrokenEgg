@@ -6,7 +6,7 @@ const Recipe = () => {
 	const instructions = useAppSelector((state) => state.instructions);
 	const information = useAppSelector((state) => state.information);
 
-	console.log(instructions);
+	// console.log(instructions);
 
 	interface InstructionProps {
 		name: "";
@@ -30,6 +30,7 @@ const Recipe = () => {
 				<div className="md:flex md:justify-center">
 					<img src={information.image} alt="" />
 				</div>
+				{/* Recipe Title and basic info */}
 				<div className="px-3">
 					<h1 className="text-3xl font-grandStand text-center mt-3">
 						{information && information.title}
@@ -42,11 +43,12 @@ const Recipe = () => {
 						</div>
 						<div className="flex gap-3 justify-between">
 							<p className="w-full">{information.servings}</p>
-							<p className="w-full">{information.readyInMinutes}</p>
+							<p className="w-full">{information.readyInMinutes + " min"}</p>
 							<p className="w-full">{information.sourceName}</p>
 						</div>
 					</div>
 				</div>
+				{/* Ingredients */}
 				<div className="px-3">
 					<h2 className="text-xl border-b-2 border-text w-[102px]">
 						Ingredients
@@ -58,6 +60,12 @@ const Recipe = () => {
 							)
 						)}
 					</ul>
+				</div>
+				{/* Instructions */}
+				<div className="px-3">
+					<h2 className="text-xl border-b-2 border-text w-[105px]">
+						Instructions
+					</h2>
 				</div>
 				{/* <div>
 				{instructions ? (
