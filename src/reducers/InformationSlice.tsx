@@ -16,7 +16,6 @@ interface InformationInitialState {
 			original: string;
 		}
 	];
-	summary: string;
 }
 
 const initialState: InformationInitialState = {
@@ -34,14 +33,13 @@ const initialState: InformationInitialState = {
 			original: "",
 		},
 	],
-	summary: "",
 };
 
 // Use the PayloadAction type to declare the contents of 'action.payload'
 // (state, action: PayloadAction<number>)
 
 export const informationSlice = createSlice({
-	name: "instructions",
+	name: "information",
 	initialState,
 	reducers: {
 		searchForInformation: (

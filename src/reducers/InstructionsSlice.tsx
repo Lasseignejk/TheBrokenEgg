@@ -2,41 +2,33 @@ import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
 interface InstructionsInitialState {
-	results: [
+	name: string;
+	steps: [
 		{
-			name: string;
-			steps: [
+			ingredients: [
 				{
-					ingredients: [
-						{
-							image: string;
-							name: string;
-						}
-					];
-					number: number;
-					step: string;
+					image: string;
+					name: string;
 				}
 			];
+			number: number;
+			step: string;
 		}
 	];
 }
 
 const initialState: InstructionsInitialState = {
-	results: [
+	name: "",
+	steps: [
 		{
-			name: "",
-			steps: [
+			ingredients: [
 				{
-					ingredients: [
-						{
-							image: "",
-							name: "",
-						},
-					],
-					number: 0,
-					step: "",
+					image: "",
+					name: "",
 				},
 			],
+			number: 0,
+			step: "",
 		},
 	],
 };

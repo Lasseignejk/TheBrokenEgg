@@ -13,21 +13,17 @@ interface RecipeProps {
 
 const RecipeCard = ({ id, title, image }: RecipeProps) => {
 	interface JSONInstructions {
-		results: [
+		name: string;
+		steps: [
 			{
-				name: string;
-				steps: [
+				ingredients: [
 					{
-						ingredients: [
-							{
-								image: string;
-								name: string;
-							}
-						];
-						number: number;
-						step: string;
+						image: string;
+						name: string;
 					}
 				];
+				number: number;
+				step: string;
 			}
 		];
 	}
@@ -47,7 +43,6 @@ const RecipeCard = ({ id, title, image }: RecipeProps) => {
 				original: string;
 			}
 		];
-		summary: string;
 	}
 
 	const dispatch = useAppDispatch();
