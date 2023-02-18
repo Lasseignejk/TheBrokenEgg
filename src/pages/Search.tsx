@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { searchRecipe, reset } from "../reducers/RecipeSlice";
 import RecipeCard from "../components/RecipeCard";
 import DropDownSearch from "../components/DropDownSearch";
+import { cuisineOptions, dietOptions } from "../../data";
 
 const Search = () => {
 	const recipes = useAppSelector((state) => state.recipe.results);
@@ -37,11 +38,17 @@ const Search = () => {
 		dispatch(searchRecipe(json));
 	};
 
+	interface OptionsProps {
+		title: string;
+		values: string[];
+	}
+
 	return (
 		<div className="flex flex-col">
 			<div>
 				{/* Advanced Search */}
-				<DropDownSearch />
+				{/* <DropDownSearch {...props:OptionsProps} />
+				<DropDownSearch {...dietOptions} /> */}
 				{/* Input field and button */}
 				<div>
 					<input
@@ -54,11 +61,19 @@ const Search = () => {
 				</div>
 			</div>
 			<div className="flex flex-col w-full gap-5 border-2 border-black mt-5">
-				{recipes?.map(
+				{recipes?.length !== 1 ? (
+					recipes?.map(
+						(recipe: RecipeProps): JSX.Element => <RecipeCard {...recipe} />
+					)
+				) : (
+					<p></p>
+				)}
+
+				{/* {recipes?.map(
 					(recipe: RecipeProps): JSX.Element => (
 						<RecipeCard {...recipe} />
 					)
-				)}
+				)} */}
 			</div>
 		</div>
 	);
