@@ -26,7 +26,7 @@ const Recipe = () => {
 
 	return (
 		<div className="lg:flex lg:justify-center">
-			<div className=" flex  flex-col gap-5 lg:w-[80%] lg:border-2 lg:border-black">
+			<div className=" flex flex-col gap-5 lg:w-[80%] lg:border-2 lg:border-black">
 				<div className="md:flex md:justify-center">
 					<img src={information.image} alt="" />
 				</div>
@@ -35,16 +35,18 @@ const Recipe = () => {
 					<h1 className="text-3xl font-grandStand text-center mt-3">
 						{information && information.title}
 					</h1>
-					<div className="bg-accent rounded-2xl px-3 py-3 text-xl text-center lg:w-[80%]">
-						<div className="flex gap-3 justify-between">
-							<p className="w-full font-bold">Servings</p>
-							<p className="w-full font-bold">Ready in</p>
-							<p className="w-full font-bold">Source</p>
-						</div>
-						<div className="flex gap-3 justify-between">
-							<p className="w-full">{information.servings}</p>
-							<p className="w-full">{information.readyInMinutes + " min"}</p>
-							<p className="w-full">{information.sourceName}</p>
+					<div className="lg:flex lg:justify-center">
+						<div className="bg-accent rounded-2xl px-3 py-3 text-xl text-center lg:w-[80%]">
+							<div className="flex gap-3 justify-between">
+								<p className="w-full font-bold">Servings</p>
+								<p className="w-full font-bold">Ready in</p>
+								<p className="w-full font-bold">Source</p>
+							</div>
+							<div className="flex gap-3 justify-between">
+								<p className="w-full">{information.servings}</p>
+								<p className="w-full">{information.readyInMinutes + " min"}</p>
+								<p className="w-full">{information.sourceName}</p>
+							</div>
 						</div>
 					</div>
 				</div>

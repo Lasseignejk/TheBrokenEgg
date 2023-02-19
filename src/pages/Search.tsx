@@ -48,8 +48,8 @@ const Search = () => {
 					</button>
 				</div>
 			</div>
-			<div className="flex flex-col w-full gap-5 mt-5">
-				{recipes[0].id !== undefined ? (
+			<div className="flex flex-col w-full gap-5 my-5 justify-center items-center md:flex-row md:flex-wrap">
+				{recipes[0]?.id !== undefined ? (
 					recipes?.map(
 						(recipe: RecipeProps): JSX.Element => <RecipeCard {...recipe} />
 					)
@@ -63,12 +63,6 @@ const Search = () => {
 						</div>
 					</div>
 				)}
-
-				{/* {recipes?.map(
-					(recipe: RecipeProps): JSX.Element => (
-						<RecipeCard {...recipe} />
-					)
-				)} */}
 			</div>
 		</div>
 	);

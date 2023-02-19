@@ -11,13 +11,13 @@ const Navbar = () => {
 	};
 
 	return (
-		<nav className="navbar h-20 flex justify-between items-center px-3 bg-[#ffd982] relative text-main">
+		<nav className="navbar h-20 flex justify-between items-center px-3 relative text-main">
 			<h1 className="text-3xl font-grandStand text-main font-[700]">
 				<Link to={"/"}>The Broken Egg</Link>
 			</h1>
 
 			<ul
-				className="nav-menu w-full fixed flex flex-col transition-all duration-[0.3s] ease-in-out text-center justify-between items-center gap-5 text-text bg-[#ffd982] top-[70px] left-[-100%] md:static md:flex-row md:w-96 md:text-left md:transition-none"
+				className="nav-menu w-full fixed flex flex-col py-8 transition-all duration-[0.3s] ease-in-out text-center justify-between items-center gap-5 text-text bg-[#ffd982] top-[70px] left-[-100%] md:static md:flex-row md:w-96 md:text-left md:transition-none md:bg-background"
 				onClick={() => showNavbar()}>
 				<li className="nav-item">
 					<Link

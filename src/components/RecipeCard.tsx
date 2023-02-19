@@ -1,4 +1,5 @@
 import React from "react";
+import "../components/RecipeCard.css";
 import { Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../functions/hooks";
 import { searchForInstructions } from "../reducers/InstructionsSlice";
@@ -37,9 +38,9 @@ const RecipeCard = ({ id, title, image }: RecipeProps) => {
 		dispatch(searchForInstructions(json));
 	};
 	return (
-		<div className="flex flex-col mx-5 text-center text-2xl rounded-lg bg-main p-5 gap-2 font-grandStand font-bold">
+		<div className="flex flex-col mx-5 text-center text-2xl rounded-2xl shadow-2xl shadow-[#cbae6a] p-5 gap-2 font-light mb-5 justify-center items-center sm:w-[330px] md:w-[500px]  md:hover:scale-105 md:transition-all md:duration-300">
 			<Link to={"/search/" + id} onClick={() => apiCall()}>
-				<img src={image} alt="" className="rounded-2xl" />
+				<img src={image} alt="" className="md:w-[400px] rounded-2xl" />
 			</Link>
 			<h2>{title}</h2>
 		</div>

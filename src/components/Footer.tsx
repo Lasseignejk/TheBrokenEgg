@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
 	return (
@@ -7,9 +8,9 @@ const Footer = () => {
 				The Broken Egg
 			</h1>
 			<div className="flex justify-evenly text-lg">
-				<p>Home</p>
-				<p>About</p>
-				<p>Search Recipes</p>
+				<Link to="/">Home</Link>
+				<Link to="/about">About</Link>
+				<Link to="/search">Search Recipes</Link>
 			</div>
 			<p className="text-sm text-center">&copy; 2023, All Rights Reserved.</p>
 		</div>
