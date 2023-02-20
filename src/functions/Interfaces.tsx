@@ -1,3 +1,15 @@
+// Search.tsx
+export interface JSONSearch {
+	results: [
+		{
+			id: number;
+			title: string;
+			image: string;
+			imageType: string;
+		}
+	];
+}
+
 export interface RecipeProps {
 	id?: number;
 	title?: string;
@@ -5,18 +17,14 @@ export interface RecipeProps {
 	imageType?: string;
 }
 
+// RecipeCard.tsx
+
 export interface JSONInstructions {
-	name: string;
-	steps: [
+	name?: string;
+	steps?: [
 		{
-			ingredients: [
-				{
-					image: string;
-					name: string;
-				}
-			];
-			number: number;
-			step: string;
+			number?: number;
+			step?: string[];
 		}
 	];
 }
@@ -36,4 +44,11 @@ export interface JSONInformation {
 			original: string;
 		}
 	];
+}
+
+// InstructionsContainer.tsx
+
+export interface InstructionProps {
+	number?: number;
+	step?: string[];
 }

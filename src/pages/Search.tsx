@@ -4,10 +4,11 @@ import { useState, useEffect } from "react";
 import { searchRecipe, reset } from "../reducers/AllRecipesSlice";
 import RecipeCard from "../components/RecipeCard";
 import DropDownSearch from "../components/DropDownSearch";
-import { RecipeProps, JSON } from "../functions/SearchInterfaces";
+import { RecipeProps, JSONSearch } from "../functions/Interfaces";
 
 const Search = () => {
 	const recipes = useAppSelector((state) => state.recipes.results);
+	console.log(recipes);
 
 	const dispatch = useAppDispatch();
 
@@ -16,7 +17,7 @@ const Search = () => {
 	const apiCall = async () => {
 		const url: string = import.meta.env.VITE_SEARCH_ALL_API + recipeToSearch;
 		const rawData: Response = await fetch(url);
-		const json: JSON = await rawData.json();
+		const json: JSONSearch = await rawData.json();
 		console.log(json.results);
 		dispatch(searchRecipe(json));
 	};

@@ -2,36 +2,16 @@ import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
 interface InstructionsInitialState {
-	name: string;
-	steps: [
+	name?: string;
+	steps?: [
 		{
-			ingredients: [
-				{
-					image: string;
-					name: string;
-				}
-			];
-			number: number;
-			step: string;
+			number?: number;
+			step?: string[];
 		}
 	];
 }
 
-const initialState: InstructionsInitialState = {
-	name: "",
-	steps: [
-		{
-			ingredients: [
-				{
-					image: "",
-					name: "",
-				},
-			],
-			number: 0,
-			step: "",
-		},
-	],
-};
+const initialState: InstructionsInitialState[] = [{}];
 
 // Use the PayloadAction type to declare the contents of 'action.payload'
 // (state, action: PayloadAction<number>)
@@ -42,7 +22,7 @@ export const instructionsSlice = createSlice({
 	reducers: {
 		searchForInstructions: (
 			state,
-			action: PayloadAction<InstructionsInitialState>
+			action: PayloadAction<InstructionsInitialState[]>
 		) => {
 			return action.payload;
 		},

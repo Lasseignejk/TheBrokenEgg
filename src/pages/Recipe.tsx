@@ -1,33 +1,19 @@
 import React from "react";
-import RecipeStep from "../components/RecipeStep";
+import InstructionsContainer from "../components/InstructionsContainer";
+import InstructionsSteps from "../components/InstructionsSteps";
 import { useAppSelector } from "../functions/hooks";
+import { JSONInformation, JSONInstructions } from "../functions/Interfaces";
 
 const Recipe = () => {
 	const instructions = useAppSelector((state) => state.instructions);
 	const information = useAppSelector((state) => state.information);
 
-	// console.log(instructions);
-
-	interface InstructionProps {
-		name: "";
-		steps: [
-			{
-				ingredients: [
-					{
-						image: "";
-						name: "";
-					}
-				];
-				number: 0;
-				step: "";
-			}
-		];
-	}
+	console.log(instructions);
 
 	return (
-		<div className="lg:flex lg:justify-center">
+		<div className="lg:flex lg:justify-center mb-5">
 			<div className=" flex flex-col gap-5 lg:w-[80%] lg:border-2 lg:border-black">
-				<div className="md:flex md:justify-center">
+				<div className="flex justify-center">
 					<img src={information.image} alt="" />
 				</div>
 				{/* Recipe Title and basic info */}
@@ -36,7 +22,7 @@ const Recipe = () => {
 						{information && information.title}
 					</h1>
 					<div className="lg:flex lg:justify-center">
-						<div className="bg-accent rounded-2xl px-3 py-3 text-xl text-center lg:w-[80%]">
+						<div className="bg-accent rounded-2xl px-3 py-3 text-xl text-center lg:w-[60%]">
 							<div className="flex gap-3 justify-between">
 								<p className="w-full font-bold">Servings</p>
 								<p className="w-full font-bold">Ready in</p>
@@ -51,7 +37,7 @@ const Recipe = () => {
 					</div>
 				</div>
 				{/* Ingredients */}
-				<div className="px-3">
+				<div className="flex flex-col px-3 gap-3">
 					<h2 className="text-xl border-b-2 border-text w-[102px]">
 						Ingredients
 					</h2>
@@ -64,48 +50,24 @@ const Recipe = () => {
 					</ul>
 				</div>
 				{/* Instructions */}
-				<div className="px-3">
-					<h2 className="text-xl border-b-2 border-text w-[105px]">
-						Instructions
-					</h2>
-				</div>
-				{/* <div>
-				{instructions ? (
-					<p>{`The name is ${instructions?.name}`}</p>
-				) : (
-					<p>Loading</p>
-				)}{" "}
-			</div> */}
-				<div>
-					{instructions ? (
-						<p>{`The name is ${instructions?.steps?.length}`}</p>
-					) : (
-						<p>Loading</p>
-					)}{" "}
-				</div>
-				<div>
-					{instructions && (
-						<p>{`The length is ${instructions?.steps?.length}`}</p>
-					)}
-				</div>
-				<div>
-					{/* {instructions?.steps.map(
-				(steps: InstructionProps): JSX.Element => (
-					return <RecipeStep {...steps} />
-				)
-			)} */}
-				</div>
+				<div className="flex flex-col px-3 gap-3">
+					<div>
+						<h2 className="text-xl border-b-2 border-text w-[105px]">
+							Instructions
+						</h2>
+					</div>
 
-				{/* <p>{instructions?.steps[0]?.step}</p> */}
-				{/* {instructions?.results.length !== 1 ? (
-				instructions?.results.map(
-					(results: InstructionProps): JSX.Element => (
-						<RecipeStep {...results} />
-					)
-				)
-			) : (
-				<p></p>
-			)} */}
+					<div className="flex flex-col gap-5">
+						{instructions?.map(
+							// each item is an individual object
+							(item: JSONInstructions): JSX.Element => (
+								<div className="flex flex-col gap-2">
+									<InstructionsContainer {...item} />
+								</div>
+							)
+						)}
+					</div>
+				</div>
 			</div>
 		</div>
 	);

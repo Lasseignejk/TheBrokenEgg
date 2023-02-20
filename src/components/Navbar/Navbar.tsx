@@ -17,7 +17,7 @@ const Navbar = () => {
 			</h1>
 
 			<ul
-				className="nav-menu w-full fixed flex flex-col py-8 transition-all duration-[0.3s] ease-in-out text-center justify-between items-center gap-5 text-text bg-[#ffd982] top-[70px] left-[-100%] md:static md:flex-row md:w-96 md:text-left md:transition-none md:bg-background"
+				className="nav-menu w-full fixed flex flex-col py-8 transition-all duration-[0.3s] ease-in-out text-center justify-between items-center gap-5 text-text bg-[#ffd982] top-[70px] left-[-100%] md:static md:flex-row md:w-96 md:text-left md:transition-none md:bg-background md:py-3"
 				onClick={() => showNavbar()}>
 				<li className="nav-item">
 					<Link
