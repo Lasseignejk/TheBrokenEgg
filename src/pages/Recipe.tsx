@@ -2,7 +2,11 @@ import React from "react";
 import InstructionsContainer from "../components/InstructionsContainer";
 import InstructionsSteps from "../components/InstructionsSteps";
 import { useAppSelector } from "../functions/hooks";
-import { JSONInformation, JSONInstructions } from "../functions/Interfaces";
+import {
+	Ingredients,
+	JSONInformation,
+	JSONInstructions,
+} from "../functions/Interfaces";
 
 const Recipe = () => {
 	const instructions = useAppSelector((state) => state.instructions);
@@ -43,7 +47,7 @@ const Recipe = () => {
 					</h2>
 					<ul>
 						{information?.extendedIngredients?.map(
-							(ingredient): JSX.Element => (
+							(ingredient: Ingredients): JSX.Element => (
 								<li className="my-2 text-lg">{ingredient.original}</li>
 							)
 						)}

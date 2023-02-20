@@ -1,7 +1,11 @@
-export const cuisineOptions: Object = {
+interface OptionsProps {
+	title: string;
+	values: string[];
+}
+export const cuisineOptions: OptionsProps = {
 	title: "cuisine",
 	values: [
-		"cuisine",
+		"---",
 		"African",
 		"American",
 		"British",
@@ -31,9 +35,10 @@ export const cuisineOptions: Object = {
 	],
 };
 
-export const dietOptions: Object = {
+export const dietOptions: OptionsProps = {
 	title: "diet",
 	values: [
+		"---",
 		"Gluten Free",
 		"Ketogenic",
 		"Vegetarian",

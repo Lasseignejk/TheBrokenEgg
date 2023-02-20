@@ -29,11 +29,8 @@ const RecipeCard = ({ id, title, image }: RecipeProps) => {
 
 	const apiCallRecipeInstructions = async () => {
 		const url: string =
-			`https://api.spoonacular.com/recipes/324694/analyzedInstructions?apiKey=` +
+			`https://api.spoonacular.com/recipes/${id}/analyzedInstructions?apiKey=` +
 			import.meta.env.VITE_APIKEY;
-		// const url: string =
-		// 	`https://api.spoonacular.com/recipes/${id}/analyzedInstructions?apiKey=` +
-		// 	import.meta.env.VITE_APIKEY;
 
 		const rawData: Response = await fetch(url);
 		const json: JSONInstructions[] = await rawData.json();

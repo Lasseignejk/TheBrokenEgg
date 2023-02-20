@@ -5,6 +5,7 @@ import { searchRecipe, reset } from "../reducers/AllRecipesSlice";
 import RecipeCard from "../components/RecipeCard";
 import DropDownSearch from "../components/DropDownSearch";
 import { RecipeProps, JSONSearch } from "../functions/Interfaces";
+import cuisineOptions, { dietOptions } from "../../data";
 
 const Search = () => {
 	const recipes = useAppSelector((state) => state.recipes.results);
@@ -16,10 +17,11 @@ const Search = () => {
 
 	const apiCall = async () => {
 		const url: string = import.meta.env.VITE_SEARCH_ALL_API + recipeToSearch;
-		const rawData: Response = await fetch(url);
-		const json: JSONSearch = await rawData.json();
-		console.log(json.results);
-		dispatch(searchRecipe(json));
+		console.log(url);
+		// const rawData: Response = await fetch(url);
+		// const json: JSONSearch = await rawData.json();
+		// console.log(json.results);
+		// dispatch(searchRecipe(json));
 	};
 
 	useEffect(() => {
@@ -30,9 +32,21 @@ const Search = () => {
 		<div className="flex flex-col justify-center items-center">
 			<div>
 				{/* Advanced Search */}
-				{/* Could try maping like the recipes  */}
-				{/* <DropDownSearch {cuisineOptions} />
-				<DropDownSearch {...dietOptions} />  */}
+				<div>
+					<div className="flex gap-3">
+						<p>Diet:</p>
+						<select>
+							<DropDownSearch {...cuisineOptions} />
+						</select>
+					</div>
+					<div className="flex gap-3">
+						<p>Cuisine:</p>
+						<select>
+							<DropDownSearch {...dietOptions} />
+						</select>
+					</div>
+				</div>
+
 				{/* Input field and button */}
 				<div className="bg-background flex justify-center items-center px-3 pt-6 gap-3">
 					<input

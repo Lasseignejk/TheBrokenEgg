@@ -40,10 +40,44 @@ export interface JSONInformation {
 	spoonacularScore: number;
 	extendedIngredients: [
 		{
+			measures: {
+				metric: {
+					amount: number;
+					unitLong: string;
+					unitShort: string;
+				};
+				us: {
+					amount: number;
+					unitLong: string;
+					unitShort: string;
+				};
+			};
 			name: string;
 			original: string;
+			originalName: string;
+			unit: string;
 		}
 	];
+}
+
+// Recipe.tsx
+export interface Ingredients {
+	measures?: {
+		metric?: {
+			amount?: number;
+			unitLong?: string;
+			unitShort?: string;
+		};
+		us: {
+			amount?: number;
+			unitLong?: string;
+			unitShort?: string;
+		};
+	};
+	name?: string;
+	original?: string;
+	originalName?: string;
+	unit?: string;
 }
 
 // InstructionsContainer.tsx
