@@ -53,9 +53,10 @@ export const dietOptions: OptionsProps = {
 	],
 };
 
-export const intoleranceOptions: Object = {
+export const intoleranceOptions: OptionsProps = {
 	title: "intolerances",
 	values: [
+		"---",
 		"Dairy",
 		"Egg",
 		"Gluten",
@@ -71,9 +72,10 @@ export const intoleranceOptions: Object = {
 	],
 };
 
-export const typeOptions: Object = {
+export const typeOptions: OptionsProps = {
 	title: "type",
 	values: [
+		"---",
 		"Appetizer",
 		"Beverage",
 		"Bread",

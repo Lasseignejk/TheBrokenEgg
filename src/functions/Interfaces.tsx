@@ -2,6 +2,11 @@
 export interface RecipeParamsState {
 	cuisine?: string;
 	diet?: string;
+	intolerances?: string;
+	type?: string;
+	includeIngredients?: string;
+	excludeIngredients?: string;
+	maxReadyTime?: string;
 }
 
 export const formatParams = (recipeParams: RecipeParamsState) => {
@@ -15,7 +20,7 @@ export const formatParams = (recipeParams: RecipeParamsState) => {
 };
 
 export interface Event {
-	target: HTMLSelectElement;
+	target: HTMLSelectElement | HTMLInputElement;
 }
 
 export interface JSONSearch {
@@ -35,6 +40,17 @@ export interface RecipeProps {
 	image?: string;
 	imageType?: string;
 }
+
+export const showAdvancedSearch = () => {
+	const advancedSearchDiv = document.querySelector(
+		".advanDiv"
+	) as HTMLDivElement;
+	advancedSearchDiv.classList.toggle("show");
+	const advancedSearchTitle = document.querySelector(
+		".advanTitle"
+	) as HTMLDivElement;
+	advancedSearchTitle.classList.toggle("changeRadius");
+};
 
 // RecipeCard.tsx
 
