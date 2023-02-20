@@ -5,7 +5,7 @@ interface OptionsProps {
 	values: string[];
 }
 
-const DropDownSearch = ({ title, values }: OptionsProps) => {
+const DropDownSearch = ({ title, values }: OptionsProps): JSX.Element => {
 	return (
 		<>
 			{values?.map(

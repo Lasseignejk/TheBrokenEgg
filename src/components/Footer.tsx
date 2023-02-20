@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Footer = () => {
+const Footer = (): JSX.Element => {
 	return (
 		<div className="bg-[#ffd982] flex flex-col gap-5 py-3">
 			<h1 className="text-main font-grandStand text-3xl font-bold text-center">

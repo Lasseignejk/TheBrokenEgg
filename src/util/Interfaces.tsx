@@ -45,3 +45,8 @@ export interface JSONInformation {
 		}
 	];
 }
+
+export interface InstructionProps {
+	number?: number;
+	step?: string[];
+}

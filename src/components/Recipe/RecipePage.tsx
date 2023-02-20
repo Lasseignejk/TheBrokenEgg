@@ -1,9 +1,9 @@
 import React from "react";
 import InstructionsContainer from "./Instructions/InstructionsContainer";
 import { useAppSelector } from "../../util/hooks";
-import { JSONInformation, JSONInstructions } from "../../util/Interfaces";
+import { JSONInstructions } from "../../util/Interfaces";
 
-const RecipePage = () => {
+const RecipePage = (): JSX.Element => {
 	const instructions = useAppSelector((state) => state.instructions);
 	const information = useAppSelector((state) => state.information);
 

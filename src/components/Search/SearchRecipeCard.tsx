@@ -9,34 +9,34 @@ import {
 	RecipeProps,
 } from "../../util/Interfaces";
 
-const RecipeCard = ({ id, title, image }: RecipeProps) => {
+const RecipeCard = ({ id, title, image }: RecipeProps): JSX.Element => {
 	const dispatch = useAppDispatch();
 
-	const apiCall = async () => {
+	const apiCall = async (): Promise<void> => {
 		await apiCallRecipeInstructions();
-		// await apiCallRecipeInformation();
+		await apiCallRecipeInformation();
 	};
 
-	// const apiCallRecipeInformation = async () => {
-	// 	const url: string =
-	// 		`https://api.spoonacular.com/recipes/${id}/information?apiKey=` +
-	// 		import.meta.env.VITE_APIKEY;
-	// 	const rawData: Response = await fetch(url);
-	// 	const json: JSONInformation = await rawData.json();
-	// 	dispatch(searchForInformation(json));
-	// 	// console.log(json);
-	// };
+	const apiCallRecipeInformation = async (): Promise<Object> => {
+		const url: string =
+			`https://api.spoonacular.com/recipes/${id}/information?apiKey=` +
+			import.meta.env.VITE_APIKEY;
+		const rawData: Response = await fetch(url);
+		const json: JSONInformation = await rawData.json();
+		return dispatch(searchForInformation(json));
+		// console.log(json);
+	};
 
-	const apiCallRecipeInstructions = async () => {
+	const apiCallRecipeInstructions = async (): Promise<Object> => {
 		const url: string =
 			`https://api.spoonacular.com/recipes/${id}/analyzedInstructions?apiKey=` +
 			import.meta.env.VITE_APIKEY;
 
 		const rawData: Response = await fetch(url);
 		const json: JSONInstructions[] = await rawData.json();
-		console.log(json);
+		// console.log(json);
 
-		dispatch(searchForInstructions(json));
+		return dispatch(searchForInstructions(json));
 	};
 	return (
 		<div className="flex flex-col mx-5 text-center text-2xl rounded-2xl shadow-2xl shadow-[#ab9259] p-5 gap-2 font-light mb-5 justify-center items-center sm:w-[330px] md:w-[500px]  md:hover:scale-105 md:transition-all md:duration-300">

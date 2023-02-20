@@ -15,7 +15,7 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { RecipeProps } from "../../util/Interfaces";
 
 // what does this component return? react jsx
-const SearchPage = () => {
+const SearchPage = (): JSX.Element => {
 	// check toolkit
 	const recipes = useAppSelector((state) => state.recipes.results);
 	console.log(recipes);
@@ -39,7 +39,7 @@ const SearchPage = () => {
 		maxReadyTime?: string;
 	}
 
-	const setParamsState = (e: Event) => {
+	const setParamsState = (e: Event): void => {
 		setRecipeParams({
 			...recipeParams,
 			[e.target.name]: e.target.value,
@@ -50,7 +50,7 @@ const SearchPage = () => {
 		target: HTMLSelectElement | HTMLInputElement;
 	}
 
-	const formatParams = (recipeParams: RecipeParamsState) => {
+	const formatParams = (recipeParams: RecipeParamsState): string => {
 		const formattedParams: string[] = [];
 		for (const param in recipeParams) {
 			formattedParams.push(
@@ -60,8 +60,7 @@ const SearchPage = () => {
 		return formattedParams.join("&");
 	};
 
-	// async () what is it returning?
-	const apiCall = async () => {
+	const apiCall = async (): Promise<Object> => {
 		const url: string =
 			import.meta.env.VITE_SEARCH_ALL_API +
 			recipeToSearch +
@@ -72,7 +71,7 @@ const SearchPage = () => {
 		console.log(rawData);
 		const json: JSONSearch = await rawData.json();
 		console.log(json);
-		dispatch(searchRecipe(json));
+		return dispatch(searchRecipe(json));
 	};
 
 	interface JSONSearch {
@@ -86,7 +85,7 @@ const SearchPage = () => {
 		];
 	}
 
-	const showAdvancedSearch = () => {
+	const showAdvancedSearch = (): void => {
 		const advancedSearchDiv = document.querySelector(
 			".advanDiv"
 		) as HTMLDivElement;

@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 
-const Navbar = () => {
-	const showNavbar = () => {
+const Navbar = (): JSX.Element => {
+	const showNavbar = (): void => {
 		const navMenu = document.querySelector(".nav-menu") as HTMLDivElement;
 		const hamburger = document.querySelector(".hamburger") as HTMLDivElement;
 		navMenu.classList.toggle("active");

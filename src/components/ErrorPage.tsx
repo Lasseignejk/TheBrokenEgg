@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Error = () => {
+const ErrorPage = (): JSX.Element => {
 	return (
 		<div className="flex flex-col justify-center items-center h-[calc(100vh-14.5rem)]">
 			<div className="flex flex-col justify-center items-center gap-5 text-center sm:w-3/4 md:w-1/2">
@@ -22,4 +22,4 @@ const Error = () => {
 	);
 };
 
-export default Error;
+export default ErrorPage;
