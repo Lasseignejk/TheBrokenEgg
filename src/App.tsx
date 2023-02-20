@@ -1,11 +1,11 @@
 import { Routes, Route } from "react-router-dom";
 import Footer from "./components/Footer";
-import Home from "./pages/Home";
+import HomePage from "./components/HomePage";
 import Navbar from "./components/Navbar/Navbar";
-import Recipe from "./pages/Recipe";
-import Search from "./pages/Search";
-import About from "./pages/About";
-import ErrorPage from "./pages/ErrorPage";
+import RecipePage from "./components/Recipe/RecipePage";
+import SearchPage from "./components/Search/SearchPage";
+import AboutPage from "./components/AboutPage";
+import ErrorPage from "./components/ErrorPage";
 function App() {
 	return (
 		<div className="flex flex-col justify-between min-h-screen">
@@ -13,11 +13,11 @@ function App() {
 				<Navbar />
 
 				<Routes>
-					<Route path="/" element={<Home />} />
-					<Route path="/about" element={<About />} />
+					<Route path="/" element={<HomePage />} />
+					<Route path="/about" element={<AboutPage />} />
 					<Route path="search">
-						<Route index element={<Search />} />
-						<Route path=":recipeid" element={<Recipe />} />
+						<Route index element={<SearchPage />} />
+						<Route path=":recipeid" element={<RecipePage />} />
 					</Route>
 					<Route path="*" element={<ErrorPage />} />
 				</Routes>

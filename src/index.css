@@ -27,6 +27,15 @@ body {
 	gap: 15px;
 }
 
+@media (min-width: 768px) {
+	.show {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-evenly;
+	}
+}
+
 .changeRadius {
 	border-bottom-left-radius: 0px;
 	border-bottom-right-radius: 0px;

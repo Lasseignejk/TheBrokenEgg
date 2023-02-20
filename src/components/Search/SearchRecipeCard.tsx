@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useAppDispatch, useAppSelector } from "../functions/hooks";
-import { searchForInstructions } from "../reducers/InstructionsSlice";
-import { searchForInformation } from "../reducers/InformationSlice";
+import { useAppDispatch, useAppSelector } from "../../util/hooks";
+import { searchForInstructions } from "../../reducers/InstructionsSlice";
+import { searchForInformation } from "../../reducers/InformationSlice";
 import {
-	JSONInformation,
 	JSONInstructions,
+	JSONInformation,
 	RecipeProps,
-} from "../functions/Interfaces";
+} from "../../util/Interfaces";
 
 const RecipeCard = ({ id, title, image }: RecipeProps) => {
 	const dispatch = useAppDispatch();

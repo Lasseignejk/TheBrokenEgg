@@ -1,33 +1,43 @@
 import React from "react";
-import { useAppDispatch, useAppSelector } from "../functions/hooks";
+
+import { useAppDispatch, useAppSelector } from "../../util/hooks";
 import { useState, useEffect } from "react";
-import { searchRecipe, reset } from "../reducers/AllRecipesSlice";
-import RecipeCard from "../components/RecipeCard";
-import DropDownSearch from "../components/DropDownSearch";
-import {
-	RecipeProps,
-	JSONSearch,
-	RecipeParamsState,
-	formatParams,
-	Event,
-	showAdvancedSearch,
-} from "../functions/Interfaces";
+import { searchRecipe, reset } from "../../reducers/AllRecipesSlice";
+import RecipeCard from "./SearchRecipeCard";
+import DropDownSearch from "./AdvancedSearch/ASDropDownOptions";
 import cuisineOptions, {
 	dietOptions,
 	intoleranceOptions,
 	typeOptions,
-} from "../../data";
+} from "./AdvancedSearch/data";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { RecipeProps } from "../../util/Interfaces";
 
-const Search = () => {
+// what does this component return? react jsx
+const SearchPage = () => {
+	// check toolkit
 	const recipes = useAppSelector((state) => state.recipes.results);
 	console.log(recipes);
 
 	const dispatch = useAppDispatch();
 
+	useEffect(() => {
+		dispatch(reset());
+	}, []);
+
 	const [recipeToSearch, setRecipeToSearch] = useState<string>("");
 	const [recipeParams, setRecipeParams] = useState<RecipeParamsState>({});
+
+	interface RecipeParamsState {
+		cuisine?: string;
+		diet?: string;
+		intolerances?: string;
+		type?: string;
+		includeIngredients?: string;
+		excludeIngredients?: string;
+		maxReadyTime?: string;
+	}
 
 	const setParamsState = (e: Event) => {
 		setRecipeParams({
@@ -36,6 +46,21 @@ const Search = () => {
 		});
 	};
 
+	interface Event {
+		target: HTMLSelectElement | HTMLInputElement;
+	}
+
+	const formatParams = (recipeParams: RecipeParamsState) => {
+		const formattedParams: string[] = [];
+		for (const param in recipeParams) {
+			formattedParams.push(
+				param + "=" + recipeParams[param as keyof typeof recipeParams]
+			);
+		}
+		return formattedParams.join("&");
+	};
+
+	// async () what is it returning?
 	const apiCall = async () => {
 		const url: string =
 			import.meta.env.VITE_SEARCH_ALL_API +
@@ -50,17 +75,35 @@ const Search = () => {
 		dispatch(searchRecipe(json));
 	};
 
-	useEffect(() => {
-		dispatch(reset());
-	}, []);
+	interface JSONSearch {
+		results: [
+			{
+				id: number;
+				title: string;
+				image: string;
+				imageType: string;
+			}
+		];
+	}
+
+	const showAdvancedSearch = () => {
+		const advancedSearchDiv = document.querySelector(
+			".advanDiv"
+		) as HTMLDivElement;
+		advancedSearchDiv.classList.toggle("show");
+		const advancedSearchTitle = document.querySelector(
+			".advanTitle"
+		) as HTMLDivElement;
+		advancedSearchTitle.classList.toggle("changeRadius");
+	};
 
 	return (
-		<div className="flex flex-col justify-center items-center">
-			<div>
+		<div className="flex flex-col justify-center items-center w-full">
+			<div className="flex flex-col md:w-[80%] items-center px-3">
 				{/* Advanced Search */}
-				<div>
+				<div className="w-full md:w-3/4">
 					<div
-						className="flex justify-between text-xl px-3 py-3 items-center bg-main rounded-xl advanTitle transition-colors duration-300 ease-in-out"
+						className="flex justify-between text-xl px-3 py-3 items-center bg-main rounded-xl advanTitle transition-colors duration-300 ease-in-out cursor-pointer md-w"
 						onClick={() => showAdvancedSearch()}>
 						<h1>Advanced Search</h1>
 						<div className="">
@@ -68,9 +111,11 @@ const Search = () => {
 						</div>
 					</div>
 
-					<div className="hidden advanDiv bg-accent2 py-5 rounded-b-lg text-lg justify-center items-center">
+					<div className="hidden advanDiv bg-accent2 py-5 rounded-b-lg text-lg justify-center items-center px-5">
 						<div className="flex gap-3">
-							<label htmlFor="cuisine" className="w-[90px] cursor-pointer">
+							<label
+								htmlFor="cuisine"
+								className="w-[90px] cursor-pointer xl:text-right">
 								Cuisine:
 							</label>
 							<select
@@ -83,7 +128,9 @@ const Search = () => {
 							</select>
 						</div>
 						<div className="flex gap-3">
-							<label htmlFor="diet" className="w-[90px] cursor-pointer">
+							<label
+								htmlFor="diet"
+								className="w-[90px] cursor-pointer xl:text-right">
 								Diet:
 							</label>
 							<select
@@ -96,7 +143,9 @@ const Search = () => {
 							</select>
 						</div>
 						<div className="flex gap-3">
-							<label htmlFor="allergens" className="w-[90px] cursor-pointer">
+							<label
+								htmlFor="allergens"
+								className="w-[90px] cursor-pointer xl:text-right">
 								Allergens:
 							</label>
 							<select
@@ -111,7 +160,9 @@ const Search = () => {
 							</select>
 						</div>
 						<div className="flex gap-3">
-							<label htmlFor="type" className="w-[90px] cursor-pointer">
+							<label
+								htmlFor="type"
+								className="w-[90px] cursor-pointer xl:text-right">
 								Type:
 							</label>
 							<select
@@ -124,7 +175,9 @@ const Search = () => {
 							</select>
 						</div>
 						<div className="flex gap-3">
-							<label htmlFor="include" className="w-[90px] cursor-pointer">
+							<label
+								htmlFor="include"
+								className="w-[90px] cursor-pointer  xl:text-right">
 								Include:
 							</label>
 							<input
@@ -142,7 +195,9 @@ const Search = () => {
 							/>
 						</div>
 						<div className="flex gap-3">
-							<label htmlFor="exclude" className="w-[90px] cursor-pointer">
+							<label
+								htmlFor="exclude"
+								className="w-[90px] cursor-pointer  xl:text-right">
 								Exclude:
 							</label>
 							<input
@@ -160,7 +215,9 @@ const Search = () => {
 							/>
 						</div>
 						<div className="flex gap-3 flex-wrap justify-center items-center">
-							<label htmlFor="time" className="w-[90px] cursor-pointer">
+							<label
+								htmlFor="time"
+								className="w-[90px] cursor-pointer  xl:text-right xl:w-[110px]">
 								Max Time: (min)
 							</label>
 							<input
@@ -218,4 +275,4 @@ const Search = () => {
 	);
 };
 
-export default Search;
+export default SearchPage;

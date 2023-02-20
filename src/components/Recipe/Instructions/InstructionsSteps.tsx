@@ -1,6 +1,6 @@
 import React from "react";
-import { useAppSelector } from "../functions/hooks";
-import { InstructionProps, JSONInstructions } from "../functions/Interfaces";
+import { useAppSelector } from "../../../util/hooks";
+import { InstructionProps, JSONInstructions } from "../../../util/Interfaces";
 
 const InstructionsSteps = ({ number, step }: InstructionProps) => {
 	return (

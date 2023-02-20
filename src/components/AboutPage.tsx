@@ -1,6 +1,6 @@
 import React from "react";
 
-const About = () => {
+const AboutPage = () => {
 	return (
 		<div className="flex flex-col items-center pt-3">
 			<h1 className="text-3xl font-bold">
@@ -10,4 +10,4 @@ const About = () => {
 	);
 };
 
-export default About;
+export default AboutPage;

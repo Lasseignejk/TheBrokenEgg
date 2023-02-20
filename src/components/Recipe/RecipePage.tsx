@@ -1,18 +1,30 @@
 import React from "react";
-import InstructionsContainer from "../components/InstructionsContainer";
-import InstructionsSteps from "../components/InstructionsSteps";
-import { useAppSelector } from "../functions/hooks";
-import {
-	Ingredients,
-	JSONInformation,
-	JSONInstructions,
-} from "../functions/Interfaces";
+import InstructionsContainer from "./Instructions/InstructionsContainer";
+import { useAppSelector } from "../../util/hooks";
+import { JSONInformation, JSONInstructions } from "../../util/Interfaces";
 
-const Recipe = () => {
+const RecipePage = () => {
 	const instructions = useAppSelector((state) => state.instructions);
 	const information = useAppSelector((state) => state.information);
 
-	console.log(instructions);
+	interface Ingredients {
+		measures?: {
+			metric?: {
+				amount?: number;
+				unitLong?: string;
+				unitShort?: string;
+			};
+			us: {
+				amount?: number;
+				unitLong?: string;
+				unitShort?: string;
+			};
+		};
+		name?: string;
+		original?: string;
+		originalName?: string;
+		unit?: string;
+	}
 
 	return (
 		<div className="lg:flex lg:justify-center mb-5">
@@ -77,4 +89,4 @@ const Recipe = () => {
 	);
 };
 
-export default Recipe;
+export default RecipePage;
