@@ -1,4 +1,23 @@
 // Search.tsx
+export interface RecipeParamsState {
+	cuisine?: string;
+	diet?: string;
+}
+
+export const formatParams = (recipeParams: RecipeParamsState) => {
+	const formattedParams: string[] = [];
+	for (const param in recipeParams) {
+		formattedParams.push(
+			param + "=" + recipeParams[param as keyof typeof recipeParams]
+		);
+	}
+	return formattedParams.join("&");
+};
+
+export interface Event {
+	target: HTMLSelectElement;
+}
+
 export interface JSONSearch {
 	results: [
 		{

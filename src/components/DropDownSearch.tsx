@@ -11,7 +11,9 @@ const DropDownSearch = ({ title, values }: OptionsProps) => {
 		<>
 			{values?.map(
 				(item): JSX.Element => (
-					<option value={item}>{item}</option>
+					<option className="bg-background hover:bg-accent" value={item}>
+						{item}
+					</option>
 				)
 			)}
 

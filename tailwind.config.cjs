@@ -18,6 +18,7 @@ module.exports = {
 				background: "#fcfaf2",
 				text: "#523200",
 				accent: "#ffd600",
+				accent2: "#ffd982",
 			},
 		},
 	},

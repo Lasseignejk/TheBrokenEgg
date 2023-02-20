@@ -7,6 +7,7 @@
 	--background: #fcfaf2;
 	--text: #523200;
 	--accent: #ffd600;
+	--accent2: #ffd982;
 	--logoFont: "Grandstander", "cursive";
 	--bodyFont: "Nunito", "sans-serif";
 }
@@ -18,4 +19,16 @@ body {
 	font-family: var(--bodyFont);
 	background-color: var(--background);
 	box-sizing: border-box;
+}
+
+.show {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+
+.changeRadius {
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+	background-color: var(--accent2);
 }
