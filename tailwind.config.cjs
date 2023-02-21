@@ -20,6 +20,10 @@ module.exports = {
 				accent: "#ffd600",
 				accent2: "#ffd982",
 			},
+			gridTemplateColumns: {
+				homemd: "1fr 4fr 1fr",
+				homexl: "1fr 6fr 1fr",
+			},
 		},
 	},
 	plugins: [],
