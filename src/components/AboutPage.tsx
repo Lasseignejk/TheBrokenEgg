@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const AboutPage = (): JSX.Element => {
 	return (
-		<div className="flex flex-col items-center pt-3 px-3 gap-5">
+		<div className="flex flex-col items-center mt-3 px-3 gap-10 w-[100vw]">
 			<h1 className="text-3xl font-bold">
 				About <span className="font-grandStand text-main">The Broken Egg</span>
 			</h1>

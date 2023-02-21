@@ -1,25 +1,22 @@
 import React from "react";
-import { Carousel, CarouselItem } from "./Carousel";
-
-const items = Array.from({ length: 10 }).map((_, i) => ({
-	id: i,
-	src: `https://picsum.photos/500?idx=${i}`,
-}));
 
 const HomePage = (): JSX.Element => {
 	return (
-		<div>
-			<h2 className="text-xl pl-3">Popular Recipes</h2>
-			<div className="w-150px">
-				<Carousel
-					items={items}
-					renderItem={({ item, isSnapPoint }) => (
-						<CarouselItem key={item.id} isSnapPoint={isSnapPoint}>
-							<img src={item.src} className="" alt="" />
-						</CarouselItem>
-					)}
-				/>
+		<div className="h-[calc(100vh-14.3rem)] relative">
+			<div className="h-full hidden md:block">
+				<div className="relative h-full overflow-hidden">
+					<img
+						src="../../BrokenEgg1.png"
+						alt=""
+						className="h-[120%] overflow-hidden"
+					/>
+				</div>
+				<div className="absolute top-0 left-0">
+					<h1>The Broken Egg</h1>
+				</div>
+				<div></div>
 			</div>
+			<div className="h-full md:hidden">Hidden on middle</div>
 		</div>
 	);
 };
