@@ -14,9 +14,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { RecipeProps } from "../../util/Interfaces";
 
-// what does this component return? react jsx
 const SearchPage = (): JSX.Element => {
-	// check toolkit
 	const recipes = useAppSelector((state) => state.recipes.results);
 	console.log(recipes);
 
