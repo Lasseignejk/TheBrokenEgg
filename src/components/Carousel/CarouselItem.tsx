@@ -8,7 +8,6 @@ import { JSONInformation, JSONInstructions } from "../../util/Interfaces";
 interface CarouselItemProps {
 	id?: number;
 	url?: string;
-	index?: number;
 	stopSlide?: () => void;
 	startSlide?: () => void;
 }

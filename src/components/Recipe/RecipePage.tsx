@@ -9,8 +9,8 @@ const RecipePage = (): JSX.Element => {
 	const instructions = useAppSelector((state) => state.instructions);
 	const information = useAppSelector((state) => state.information);
 
-	console.log(instructions);
-	console.log(information);
+	// console.log(instructions);
+	// console.log(information);
 
 	interface Ingredients {
 		measures?: {

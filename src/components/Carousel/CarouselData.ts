@@ -40,15 +40,55 @@ export const under30Slides: Slides[] = [
 		id: 1096260,
 		url: "https://spoonacular.com/recipeImages/1096260-312x231.jpg",
 	},
+	{
+		id: 1095806,
+		url: "https://spoonacular.com/recipeImages/1095806-312x231.jpg",
+	},
 	// {
 	// 	id: ,
 	// 	url: ,
 	// },
 ];
-// ]
-// 	"https://spoonacular.com/recipeImages/1697543-312x231.jpg",
-// 	"https://spoonacular.com/recipeImages/634710-312x231.jpg",
-// 	"https://spoonacular.com/recipeImages/1095955-312x231.jpg",
-// 	"https://spoonacular.com/recipeImages/648460-312x231.jpg",
-// 	"https://spoonacular.com/recipeImages/648460-312x231.jpg",
-// ];
+
+export const aroundTheWorldSlides: Slides[] = [
+	{
+		id: 632003,
+		url: "https://spoonacular.com/recipeImages/632003-312x231.jpg",
+	},
+	{
+		id: 653275,
+		url: "https://spoonacular.com/recipeImages/653275-312x231.jpg",
+	},
+	{
+		id: 660225,
+		url: "https://spoonacular.com/recipeImages/660225-312x231.jpg",
+	},
+	{
+		id: 716217,
+		url: "https://spoonacular.com/recipeImages/716217-312x231.jpg",
+	},
+	{
+		id: 663669,
+		url: "https://spoonacular.com/recipeImages/663669-312x231.jpg",
+	},
+	{
+		id: 1096211,
+		url: "https://spoonacular.com/recipeImages/1096211-312x231.jpg",
+	},
+	{
+		id: 635686,
+		url: "https://spoonacular.com/recipeImages/635686-312x231.jpg",
+	},
+	{
+		id: 635263,
+		url: "https://spoonacular.com/recipeImages/635263-312x231.jpg",
+	},
+	{
+		id: 638668,
+		url: "https://spoonacular.com/recipeImages/638668-312x231.jpg",
+	},
+	{
+		id: 649407,
+		url: "https://spoonacular.com/recipeImages/649407-312x231.jpg",
+	},
+];
