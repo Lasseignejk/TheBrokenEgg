@@ -40,10 +40,13 @@
 	left: 50%;
 	bottom: 1em;
 	z-index: 2;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 }
 .carousel-indicator-item {
-	width: 15px;
-	height: 15px;
+	width: 13px;
+	height: 13px;
 	border: none;
 	background: #fff;
 	opacity: 0.5;

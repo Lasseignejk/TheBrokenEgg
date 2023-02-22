@@ -15,11 +15,12 @@ interface CarouselProps {
 
 const Carousel = ({ slides }: CarouselProps): JSX.Element => {
 	const [currentSlide, setCurrentSlide] = useState<number>(0);
-	const slideInterval = React.useRef();
+	const slideInterval = useRef(0);
 
 	const prev = (): void => {
 		startSlideTimer();
-		const index = currentSlide > 0 ? currentSlide - 1 : slides?.length - 1;
+		const index: number =
+			currentSlide > 0 ? currentSlide - 1 : slides?.length - 1;
 		setCurrentSlide(index);
 	};
 	const next = (): void => {
@@ -40,7 +41,7 @@ const Carousel = ({ slides }: CarouselProps): JSX.Element => {
 			setCurrentSlide((currentSlide: number) =>
 				currentSlide < slides.length - 1 ? currentSlide + 1 : 0
 			);
-		}, 3000);
+		}, 6000);
 	};
 
 	const stopSlideTimer = (): void => {
@@ -56,7 +57,7 @@ const Carousel = ({ slides }: CarouselProps): JSX.Element => {
 	}, []);
 
 	return (
-		<div className="carousel h-[200px] md:h-[290px] border-2 border-black">
+		<div className="carousel h-[200px] xl:h-[290px]">
 			<div
 				className="carousel-inner"
 				style={{ transform: `translateX(${-currentSlide * 100}%)` }}>
