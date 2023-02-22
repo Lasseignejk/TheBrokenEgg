@@ -19,6 +19,7 @@ module.exports = {
 				text: "#523200",
 				accent: "#ffd600",
 				accent2: "#ffd982",
+				overlay: "rgba(255, 217, 130, 0.5)",
 			},
 			gridTemplateColumns: {
 				homemd: "1fr 4fr 1fr",
@@ -27,6 +28,7 @@ module.exports = {
 			backgroundImage: {
 				leftImage: "url('../../LeftLarge.png')",
 				rightImage: "url('../../RightLarge.png')",
+				mobileBanner: "url('../../HomeMobileBanner.png')",
 			},
 		},
 	},

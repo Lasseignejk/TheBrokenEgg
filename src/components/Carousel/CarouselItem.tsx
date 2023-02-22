@@ -52,7 +52,7 @@ const CarouselItem = ({
 			onMouseEnter={() => stopSlide}
 			onMouseOut={() => startSlide}>
 			<Link to={"/search/" + id} onClick={() => apiCall()}>
-				<img src={url} alt="" className="w-full" />
+				<img src={url} alt="" className="w-[400px]" />
 			</Link>
 		</div>
 	);
