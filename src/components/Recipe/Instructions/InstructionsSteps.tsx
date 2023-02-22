@@ -4,7 +4,7 @@ import { InstructionProps, JSONInstructions } from "../../../util/Interfaces";
 
 const InstructionsSteps = ({ number, step }: InstructionProps): JSX.Element => {
 	return (
-		<div className="flex">
+		<div className="flex text-lg">
 			<p className="w-[35px]">{number}.</p>
 			<p className="w-full">{step}</p>
 		</div>

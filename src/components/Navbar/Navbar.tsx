@@ -11,7 +11,7 @@ const Navbar = (): JSX.Element => {
 	};
 
 	return (
-		<nav className="navbar h-20 flex justify-between items-center px-3 relative text-main">
+		<nav className="navbar h-20 flex justify-between items-center px-3 relative text-main z-10">
 			<h1 className="text-3xl font-grandStand text-main font-[700] pl-3">
 				<Link to={"/"}>The Broken Egg</Link>
 			</h1>

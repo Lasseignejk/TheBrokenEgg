@@ -22,7 +22,7 @@ export interface JSONInformation {
 	servings: number;
 	readyInMinutes: number;
 	sourceName: string;
-	sourceURL: string;
+	sourceUrl: string;
 	spoonacularScore: number;
 	extendedIngredients: [
 		{

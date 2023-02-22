@@ -22,7 +22,7 @@ module.exports = {
 			},
 			gridTemplateColumns: {
 				homemd: "1fr 4fr 1fr",
-				homexl: "1fr 1fr 1fr",
+				homexl: "1fr 8fr 1fr",
 			},
 			backgroundImage: {
 				leftImage: "url('../../LeftLarge.png')",

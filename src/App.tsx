@@ -6,6 +6,7 @@ import RecipePage from "./components/Recipe/RecipePage";
 import SearchPage from "./components/Search/SearchPage";
 import AboutPage from "./components/AboutPage";
 import ErrorPage from "./components/ErrorPage";
+
 function App() {
 	return (
 		<div className="flex flex-col justify-between min-h-screen">

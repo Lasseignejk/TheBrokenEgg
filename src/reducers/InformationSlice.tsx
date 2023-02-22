@@ -8,7 +8,7 @@ interface InformationInitialState {
 	servings: number;
 	readyInMinutes: number;
 	sourceName: string;
-	sourceURL: string;
+	sourceUrl: string;
 	spoonacularScore: number;
 	extendedIngredients: [
 		{
@@ -25,7 +25,7 @@ const initialState: InformationInitialState = {
 	servings: 0,
 	readyInMinutes: 0,
 	sourceName: "",
-	sourceURL: "",
+	sourceUrl: "",
 	spoonacularScore: 0,
 	extendedIngredients: [
 		{

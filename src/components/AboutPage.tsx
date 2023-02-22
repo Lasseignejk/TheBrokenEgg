@@ -6,15 +6,15 @@ import RightImage from "./RightImage";
 const AboutPage = (): JSX.Element => {
 	return (
 		<div className="">
-			<div className=" min-h-[calc(100vh-14.3rem)] md:flex md:grid-cols-homemd xl:grid-cols-homexl ">
+			<div className=" min-h-[calc(100vh-14.3rem)] md:grid md:grid-cols-homemd xl:grid-cols-homexl">
 				<LeftImage />
-				<div className="w-full flex justify-center md:items-center">
-					<div className="flex flex-col px-3 justify-center items-center gap-5 sm:w-3/4 lg:w-full">
+				<div className="w-full flex md:items-center md:justify-center">
+					<div className="flex flex-col px-3 justify-center items-center gap-5 sm:w-3/4 lg:w-1/2">
 						<h1 className="text-2xl font-bold">
 							About{" "}
 							<span className="font-grandStand text-main">The Broken Egg</span>
 						</h1>
-						<p className="text-xl text-center">
+						<p className="text-xl text-center leading-relaxed">
 							The Broken Egg was created in 2023 as a project showing off the
 							creater's React/Redux skills. You can find more information about
 							the creater, or contact them, following the links below.

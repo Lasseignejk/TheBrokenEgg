@@ -1,15 +1,24 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useAppDispatch, useAppSelector } from "../../util/hooks";
-import { searchForInstructions } from "../../reducers/InstructionsSlice";
 import { searchForInformation } from "../../reducers/InformationSlice";
-import {
-	JSONInstructions,
-	JSONInformation,
-	RecipeProps,
-} from "../../util/Interfaces";
+import { searchForInstructions } from "../../reducers/InstructionsSlice";
+import { useAppDispatch } from "../../util/hooks";
+import { JSONInformation, JSONInstructions } from "../../util/Interfaces";
 
-const RecipeCard = ({ id, title, image }: RecipeProps): JSX.Element => {
+interface CarouselItemProps {
+	id?: number;
+	url?: string;
+	index?: number;
+	stopSlide?: () => void;
+	startSlide?: () => void;
+}
+
+const CarouselItem = ({
+	id,
+	url,
+	stopSlide,
+	startSlide,
+}: CarouselItemProps): JSX.Element => {
 	const dispatch = useAppDispatch();
 
 	const apiCall = async (): Promise<void> => {
@@ -39,13 +48,15 @@ const RecipeCard = ({ id, title, image }: RecipeProps): JSX.Element => {
 		return dispatch(searchForInstructions(json));
 	};
 	return (
-		<div className="flex flex-col mx-5 text-center text-2xl rounded-2xl bg-accent2 p-5 gap-2 mb-5 w-[300px] md:w-[300px] md:hover:scale-105 md:transition-all md:duration-300">
+		<div
+			className="carousel-item"
+			onMouseEnter={() => stopSlide}
+			onMouseOut={() => startSlide}>
 			<Link to={"/search/" + id} onClick={() => apiCall()}>
-				<img src={image} alt="" className="md:w-[400px] rounded-2xl" />
+				<img src={url} alt="" className="w-full" />
 			</Link>
-			<h2>{title}</h2>
 		</div>
 	);
 };
 
-export default RecipeCard;
+export default CarouselItem;
