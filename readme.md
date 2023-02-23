@@ -63,11 +63,11 @@ The rest of the things I'd like to add were things I didn't because of the API -
 
 ## Helpful Resources
 
-- [Navbar]("https://www.youtube.com/watch?v=flItyHiDm7E&t=162s") -- I used this tutorial to help me with the hamburger navbar on mobile sizes.
+[Navbar]("https://www.youtube.com/watch?v=flItyHiDm7E&t=162s") -- I used this tutorial to help me with the hamburger navbar on mobile sizes.
 
-- [Carousel]("https://www.youtube.com/watch?v=gtZevjgUkcY") -- This tutorial helped me understand and make the carousels on the home page.
+[Carousel]("https://www.youtube.com/watch?v=gtZevjgUkcY") -- This tutorial helped me understand and make the carousels on the home page.
 
-- [Irasutoya]("https://www.irasutoya.com/") -- This Japanese site is where I got all the cute artwork for <b>The Broken Egg</b>.
+[Irasutoya]("https://www.irasutoya.com/") -- This Japanese site is where I got all the cute artwork for <b>The Broken Egg</b>.
 
 <br>
 
