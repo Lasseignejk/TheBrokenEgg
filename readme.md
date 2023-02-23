@@ -1,26 +1,46 @@
 # The Broken Egg
 
-## Sources
+![The Broken Egg Homepage](/public/TheBrokenEggHome.png)
 
-[Navbar]("https://www.youtube.com/watch?v=flItyHiDm7E&t=162s")
+## Languages / Technologies Utilized
 
-[Carousel]("https://www.youtube.com/watch?v=gtZevjgUkcY")
+- React
+- Redux
+- Typescript
 
-## Colors
+## What I Learned
 
-| Hex Code | Used For          |
-| -------- | ----------------- |
-| #7e49ba  | Main Purple       |
-| #d796ff  | Accent Purple 1   |
-| #4e2d74  | Accent Purple 2   |
-| #f7dfff  | Background Purple |
-| #140024  | Font Purple       |
+## Looking Forward
+
+## Helpful Resources
+
+- [Navbar]("https://www.youtube.com/watch?v=flItyHiDm7E&t=162s")
+
+- [Carousel]("https://www.youtube.com/watch?v=gtZevjgUkcY")
+
+- [Irasutoya]("https://www.irasutoya.com/")
+
+## Styles
+
+### Colors
+
+![Colors used on The Broken Egg](/public/TheBrokenEggColors.png)
+
+| Hex Code | Used For   |
+| -------- | ---------- |
+| #ff9d00  | Main       |
+| #fcfaf2  | Background |
+| #523200  | Text       |
+| #ffd600  | Accent 1   |
+| #ffd982  | Accent 2   |
+
+<br>
 
 ### Typefaces
 
-![Typefaces used on BetterReads](/public/assets/typefacesUsed.png)
+![Typefaces used on The Broken Egg](/public/BrokenEggTypefaces.png)
 
-| Name and Link to Google Fonts                                                                      | Used For  |
-| -------------------------------------------------------------------------------------------------- | --------- |
-| [DM Serif Text](https://fonts.google.com/specimen/DM+Serif+Text?query=dm+ser&noto.query=Quicksand) | Headers   |
-| [Quicksand](https://fonts.google.com/specimen/Quicksand?query=quick&noto.query=Quicksand)          | Body Text |
+| Name and Link to Google Fonts                                  | Used For  |
+| -------------------------------------------------------------- | --------- |
+| [Grandstander](https://fonts.google.com/specimen/Grandstander) | Headers   |
+| [Nunito](https://fonts.google.com/specimen/Nunito)             | Body Text |

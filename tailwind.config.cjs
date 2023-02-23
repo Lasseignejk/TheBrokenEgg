@@ -20,7 +20,6 @@ module.exports = {
 				accent: "#ffd600",
 				accent2: "#ffd982",
 				overlay: "rgba(255, 217, 130, 0.5)",
-				overlay2: "rgba(255, 157, 0, 0.5)",
 			},
 			gridTemplateColumns: {
 				homemd: "1fr 4fr 1fr",
