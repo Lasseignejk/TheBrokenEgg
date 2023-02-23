@@ -6,10 +6,10 @@ import RightImage from "./RightImage";
 const AboutPage = (): JSX.Element => {
 	return (
 		<div className="">
-			<div className=" min-h-[calc(100vh-14.3rem)] md:grid md:grid-cols-homemd xl:grid-cols-homexl">
+			<div className="min-h-[calc(100vh-14.3rem)] lg:grid lg:grid-cols-homemd xl:grid-cols-homexl">
 				<LeftImage />
-				<div className="w-full flex md:items-center md:justify-center">
-					<div className="flex flex-col px-3 justify-center items-center gap-5 sm:w-3/4 lg:w-1/2">
+				<div className="w-full flex md:items-center sm:justify-center md:min-h-[calc(100vh-14.3rem)]">
+					<div className="flex flex-col px-3 justify-center items-center gap-5 mb-3 sm:w-3/4 lg:w-1/2">
 						<h1 className="text-2xl font-bold">
 							About{" "}
 							<span className="font-grandStand text-main">The Broken Egg</span>

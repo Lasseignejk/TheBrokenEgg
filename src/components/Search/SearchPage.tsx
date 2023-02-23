@@ -15,10 +15,11 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { RecipeProps } from "../../util/Interfaces";
 import RightImage from "../RightImage";
 import LeftImage from "../LeftImage";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const SearchPage = (): JSX.Element => {
 	const recipes = useAppSelector((state) => state.recipes.results);
-	console.log(recipes);
 
 	const dispatch = useAppDispatch();
 
@@ -60,7 +61,7 @@ const SearchPage = (): JSX.Element => {
 		return formattedParams.join("&");
 	};
 
-	const apiCall = async (): Promise<Object> => {
+	const apiCall = async (): Promise<Object | void> => {
 		const url: string =
 			import.meta.env.VITE_SEARCH_ALL_API +
 			recipeToSearch +
@@ -69,7 +70,17 @@ const SearchPage = (): JSX.Element => {
 
 		const rawData: Response = await fetch(url);
 		const json: JSONSearch = await rawData.json();
-		return dispatch(searchRecipe(json));
+		if (json.totalResults === 0) {
+			noResultsAlert();
+		} else {
+			return dispatch(searchRecipe(json));
+		}
+	};
+
+	const noResultsAlert = (): void => {
+		toast.error(
+			"Oh no! It looks like your search yielded no eggs. Please try again."
+		);
 	};
 
 	interface JSONSearch {
@@ -81,38 +92,45 @@ const SearchPage = (): JSX.Element => {
 				imageType: string;
 			}
 		];
+		totalResults: number;
 	}
 
 	const showAdvancedSearch = (): void => {
-		const advancedSearchDiv = document.querySelector(
+		const advancedSearchDiv: HTMLDivElement = document.querySelector(
 			".advanDiv"
 		) as HTMLDivElement;
 		advancedSearchDiv.classList.toggle("show");
-		const advancedSearchTitle = document.querySelector(
+		const advancedSearchTitle: HTMLDivElement = document.querySelector(
 			".advanTitle"
 		) as HTMLDivElement;
 		advancedSearchTitle.classList.toggle("changeRadius");
+		const advancedSearchX: HTMLDivElement = document.querySelector(
+			".advanX"
+		) as HTMLDivElement;
+		advancedSearchX.classList.toggle("moveX");
 	};
 
 	return (
 		<div className="">
-			<div className=" min-h-[calc(100vh-14.3rem)] md:grid md:grid-cols-homemd xl:grid-cols-homexl ">
+			<div className=" min-h-[calc(100vh-14.3rem)] lg:grid lg:grid-cols-homemd xl:grid-cols-homexl ">
 				<LeftImage />
 				<div className="w-full flex">
 					<div className="flex flex-col items-center px-3 w-full">
 						<div className="flex flex-col md:w-[80%] items-center">
 							{/* Advanced Search */}
 							<div className="w-full lg:max-w-[1000px] px-3">
+								<ToastContainer position="top-center" />
+
 								<div
-									className="flex justify-between text-xl px-3 py-3 items-center bg-main rounded-xl advanTitle transition-colors duration-300 ease-in-out cursor-pointer md-w"
+									className="flex justify-between text-xl px-3 py-3 items-center border-b-2 rounded-tl-2xl rounded-tr-2xl border-main advanTitle transition-colors duration-300 ease-in-out cursor-pointer md-w"
 									onClick={() => showAdvancedSearch()}>
 									<h1>Advanced Search</h1>
-									<div className="">
+									<div className="advanX transition-all duration-300 ease-in-out">
 										<FontAwesomeIcon icon={faPlus} />
 									</div>
 								</div>
 
-								<div className="hidden advanDiv bg-accent2 py-5 rounded-b-lg text-lg justify-center items-center px-5">
+								<div className="hidden advanDiv bg-accent2 py-5 rounded-b-2xl text-lg justify-center items-center px-5">
 									<div className="flex gap-3">
 										<label
 											htmlFor="cuisine"
@@ -120,7 +138,7 @@ const SearchPage = (): JSX.Element => {
 											Cuisine:
 										</label>
 										<select
-											className="w-[170px] cursor-pointer pl-1"
+											className="w-[170px] cursor-pointer pl-1 rounded-2xl"
 											name="cuisine"
 											id="cuisine"
 											value={recipeParams.cuisine ? recipeParams.cuisine : ""}
@@ -135,7 +153,7 @@ const SearchPage = (): JSX.Element => {
 											Diet:
 										</label>
 										<select
-											className="w-[170px] cursor-pointer pl-1"
+											className="w-[170px] cursor-pointer pl-1 rounded-2xl"
 											name="diet"
 											id="diet"
 											value={recipeParams.diet ? recipeParams.diet : ""}
@@ -150,7 +168,7 @@ const SearchPage = (): JSX.Element => {
 											Allergens:
 										</label>
 										<select
-											className="w-[170px] cursor-pointer pl-1"
+											className="w-[170px] cursor-pointer pl-1 rounded-2xl"
 											name="intolerances"
 											id="allergens"
 											value={
@@ -169,7 +187,7 @@ const SearchPage = (): JSX.Element => {
 											Type:
 										</label>
 										<select
-											className="w-[170px] cursor-pointer pl-1"
+											className="w-[170px] cursor-pointer pl-1 rounded-2xl"
 											name="type"
 											id="type"
 											value={recipeParams.type ? recipeParams.type : ""}
@@ -185,7 +203,7 @@ const SearchPage = (): JSX.Element => {
 										</label>
 										<input
 											type="text"
-											className="w-[170px] cursor-pointer pl-1"
+											className="w-[170px] cursor-pointer pl-3 rounded-2xl"
 											name="includeIngredients"
 											id="include"
 											placeholder="'bread, beef'"
@@ -205,7 +223,7 @@ const SearchPage = (): JSX.Element => {
 										</label>
 										<input
 											type="text"
-											className="w-[170px] cursor-pointer pl-1"
+											className="w-[170px] cursor-pointer pl-3 rounded-2xl"
 											name="excludeIngredients"
 											id="include"
 											placeholder="'eggs, chicken'"
@@ -225,7 +243,7 @@ const SearchPage = (): JSX.Element => {
 										</label>
 										<input
 											type="text"
-											className="w-[170px] cursor-pointer pl-1"
+											className="w-[170px] cursor-pointer pl-3 rounded-2xl"
 											name="maxReadyTime"
 											id="time"
 											placeholder="30"

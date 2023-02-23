@@ -37,8 +37,6 @@ body {
 	}
 }
 
-.changeRadius {
-	border-bottom-left-radius: 0px;
-	border-bottom-right-radius: 0px;
-	background-color: var(--accent2);
+.moveX {
+	transform: rotate(225deg);
 }
