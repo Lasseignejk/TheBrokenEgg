@@ -63,11 +63,11 @@ The rest of the things I'd like to add were things I didn't because of the API -
 
 ## Helpful Resources
 
-- I used [this]("https://www.youtube.com/watch?v=flItyHiDm7E&t=162s") tutorial to help me with the hamburger navbar on mobile sizes.
+I used [this]("https://www.youtube.com/watch?v=flItyHiDm7E&t=162s") tutorial to help me with the hamburger navbar on mobile sizes.
 
-- [This]("https://www.youtube.com/watch?v=gtZevjgUkcY") tutorial helped me understand and make the carousels on the home page.
+[This]("https://www.youtube.com/watch?v=gtZevjgUkcY") tutorial helped me understand and make the carousels on the home page.
 
-- I got all the cute artwork from [Irasutoya]("https://www.irasutoya.com/").
+I got all the cute artwork from [Irasutoya]("https://www.irasutoya.com/").
 
 <br>
 
