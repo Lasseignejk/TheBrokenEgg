@@ -53,7 +53,7 @@ const HomeFeaturedRecipe = ({
 	};
 	return (
 		<div className="xl:flex xl:flex-col xl:items-center xl:gap-5">
-			<Link to={"/search/" + id} onClick={() => apiCall()}>
+			<Link to={"/search/" + id} onClick={(): Promise<void> => apiCall()}>
 				<img src={image} alt="" />
 			</Link>
 			<h2 className="text-2xl text-center font-grandStand">{title}</h2>

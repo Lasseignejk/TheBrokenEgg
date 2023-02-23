@@ -7,16 +7,18 @@ const Footer = (): JSX.Element => {
 			<h1 className="text-main font-grandStand text-3xl font-bold text-center">
 				The Broken Egg
 			</h1>
-			<div className="">
-				<div className="md:full md:justify-center md:flex">
-					<div className="flex justify-evenly text-lg md:w-[70%] lg:w-[50%]">
-						<Link to="/">Home</Link>
-						<Link to="/about">About</Link>
-						<Link to="/search">Search</Link>
-					</div>
+
+			<div className="md:full md:justify-center md:flex">
+				<div className="flex justify-evenly text-lg md:w-[70%] lg:w-[50%]">
+					<Link to="/">Home</Link>
+					<Link to="/about">About</Link>
+					<Link to="/search">Search</Link>
 				</div>
 			</div>
-			<p className="text-sm text-center">&copy; 2023, All Rights Reserved.</p>
+
+			<p className="text-sm text-center">
+				&copy; 2023 The Broken Egg. All Rights Reserved.
+			</p>
 		</div>
 	);
 };

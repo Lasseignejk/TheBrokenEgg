@@ -31,7 +31,7 @@ const RecipePage = (): JSX.Element => {
 
 	return (
 		<div className="">
-			<div className=" min-h-[calc(100vh-14.3rem)] lg:grid lg:grid-cols-homemd xl:grid-cols-homexl ">
+			<div className=" min-h-[calc(100vh-14.3rem)] lg:grid lg:grid-cols-homelg xl:grid-cols-homexl ">
 				<LeftImage />
 				<div className="w-full flex justify-center md:items-center">
 					<div className="flex flex-col px-3 justify-center items-center gap-5 sm:w-3/4 lg:w-full">
@@ -39,6 +39,7 @@ const RecipePage = (): JSX.Element => {
 							<div className="flex justify-center">
 								<img src={information.image} alt="" className="rounded-2xl" />
 							</div>
+
 							{/* Recipe Title and basic info */}
 							<div className="">
 								<h1 className="text-3xl font-grandStand text-center my-3">
@@ -59,18 +60,17 @@ const RecipePage = (): JSX.Element => {
 											</div>
 											<div className="hidden md:block">
 												<p className="font-bold">Source</p>
-												{/* <p className="">I am a very long title of a source</p> */}
 												<p className="">{information.sourceName}</p>
 											</div>
 										</div>
 										<div className="md:hidden">
 											<p className="font-bold">Source</p>
-											{/* <p className="">I am a very long title of a source</p> */}
 											<p className="">{information.sourceName}</p>
 										</div>
 									</div>
 								</div>
 							</div>
+
 							{/* Ingredients */}
 							<div className="flex flex-col px-3 gap-3">
 								<h2 className="text-xl border-b-2 border-text w-[102px]">
@@ -78,12 +78,15 @@ const RecipePage = (): JSX.Element => {
 								</h2>
 								<ul>
 									{information?.extendedIngredients?.map(
-										(ingredient: Ingredients): JSX.Element => (
-											<li className="my-2 text-lg">{ingredient.original}</li>
+										(ingredient: Ingredients, index: number): JSX.Element => (
+											<li className="my-2 text-lg" key={index}>
+												{ingredient.original}
+											</li>
 										)
 									)}
 								</ul>
 							</div>
+
 							{/* Instructions */}
 							<div className="flex flex-col px-3 gap-3">
 								<div>
@@ -94,9 +97,8 @@ const RecipePage = (): JSX.Element => {
 
 								<div className="flex flex-col gap-5">
 									{instructions?.map(
-										// each item is an individual object
-										(item: JSONInstructions): JSX.Element => (
-											<div className="flex flex-col gap-2">
+										(item: JSONInstructions, index: number): JSX.Element => (
+											<div className="flex flex-col gap-2" key={index}>
 												<InstructionsContainer {...item} />
 											</div>
 										)

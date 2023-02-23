@@ -44,10 +44,6 @@ export const under30Slides: Slides[] = [
 		id: 1095806,
 		url: "https://spoonacular.com/recipeImages/1095806-312x231.jpg",
 	},
-	// {
-	// 	id: ,
-	// 	url: ,
-	// },
 ];
 
 export const aroundTheWorldSlides: Slides[] = [

@@ -35,9 +35,6 @@ const initialState: InformationInitialState = {
 	],
 };
 
-// Use the PayloadAction type to declare the contents of 'action.payload'
-// (state, action: PayloadAction<number>)
-
 export const informationSlice = createSlice({
 	name: "information",
 	initialState,

@@ -16,9 +16,6 @@ const initialState: RecipeInitialState = {
 	results: [{}],
 };
 
-// Use the PayloadAction type to declare the contents of 'action.payload'
-// (state, action: PayloadAction<number>)
-
 export const allRecipesSlice = createSlice({
 	name: "recipes",
 	initialState,

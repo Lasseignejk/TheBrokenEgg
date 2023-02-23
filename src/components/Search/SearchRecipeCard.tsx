@@ -24,21 +24,20 @@ const RecipeCard = ({ id, title, image }: RecipeProps): JSX.Element => {
 		const rawData: Response = await fetch(url);
 		const json: JSONInformation = await rawData.json();
 		return dispatch(searchForInformation(json));
-		// console.log(json);
 	};
 
 	const apiCallRecipeInstructions = async (): Promise<Object> => {
 		const url: string =
 			`https://api.spoonacular.com/recipes/${id}/analyzedInstructions?apiKey=` +
 			import.meta.env.VITE_APIKEY;
-
 		const rawData: Response = await fetch(url);
 		const json: JSONInstructions[] = await rawData.json();
 		return dispatch(searchForInstructions(json));
 	};
+
 	return (
 		<div className="flex flex-col mx-5 text-center text-2xl rounded-2xl bg-accent2 p-5 gap-2 mb-5 w-[300px] md:w-[300px] md:hover:scale-105 md:transition-all md:duration-300">
-			<Link to={"/search/" + id} onClick={() => apiCall()}>
+			<Link to={"/search/" + id} onClick={(): Promise<void> => apiCall()}>
 				<img src={image} alt="" className="md:w-[400px] rounded-2xl" />
 			</Link>
 			<h2>{title}</h2>

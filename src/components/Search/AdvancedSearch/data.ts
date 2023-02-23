@@ -1,9 +1,7 @@
 interface OptionsProps {
-	title: string;
 	values: string[];
 }
 export const cuisineOptions: OptionsProps = {
-	title: "cuisine",
 	values: [
 		"---",
 		"African",
@@ -36,7 +34,6 @@ export const cuisineOptions: OptionsProps = {
 };
 
 export const dietOptions: OptionsProps = {
-	title: "diet",
 	values: [
 		"---",
 		"Gluten Free",
@@ -54,7 +51,6 @@ export const dietOptions: OptionsProps = {
 };
 
 export const intoleranceOptions: OptionsProps = {
-	title: "intolerances",
 	values: [
 		"---",
 		"Dairy",
@@ -73,7 +69,6 @@ export const intoleranceOptions: OptionsProps = {
 };
 
 export const typeOptions: OptionsProps = {
-	title: "type",
 	values: [
 		"---",
 		"Appetizer",

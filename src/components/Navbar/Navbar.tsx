@@ -18,7 +18,7 @@ const Navbar = (): JSX.Element => {
 
 			<ul
 				className="nav-menu w-full fixed flex flex-col py-8 transition-all duration-[0.3s] ease-in-out text-center justify-between items-center gap-5 text-text bg-[#ffd982] top-[70px] left-[-100%] md:static md:flex-row md:w-96 md:text-left md:transition-none md:bg-background md:py-3"
-				onClick={() => showNavbar()}>
+				onClick={(): void => showNavbar()}>
 				<li className="nav-item">
 					<Link
 						to={"/"}
@@ -43,7 +43,7 @@ const Navbar = (): JSX.Element => {
 			</ul>
 			<div
 				className="hamburger md:hidden cursor-pointer"
-				onClick={() => showNavbar()}>
+				onClick={(): void => showNavbar()}>
 				<span className="bar block w-[25px] h-[3px] my-[5px] mx-auto transition-all duration-[0.3s] ease-in-out bg-text"></span>
 				<span className="bar block w-[25px] h-[3px] my-[5px] mx-auto transition-all duration-[0.3s] ease-in-out bg-text"></span>
 				<span className="bar block w-[25px] h-[3px] my-[5px] mx-auto transition-all duration-[0.3s] ease-in-out bg-text"></span>

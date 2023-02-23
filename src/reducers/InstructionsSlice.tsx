@@ -13,9 +13,6 @@ interface InstructionsInitialState {
 
 const initialState: InstructionsInitialState[] = [{}];
 
-// Use the PayloadAction type to declare the contents of 'action.payload'
-// (state, action: PayloadAction<number>)
-
 export const instructionsSlice = createSlice({
 	name: "instructions",
 	initialState,

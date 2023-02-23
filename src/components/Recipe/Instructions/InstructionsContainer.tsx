@@ -15,9 +15,9 @@ const InstructionsContainer = ({
 		<>
 			<h1 className="ml-7 font-bold">{name}</h1>
 			{steps?.map(
-				(item: InstructionProps): JSX.Element => (
+				(item: InstructionProps, index: number): JSX.Element => (
 					<>
-						<InstructionsSteps {...item} />
+						<InstructionsSteps {...item} key={index} />
 					</>
 				)
 			)}

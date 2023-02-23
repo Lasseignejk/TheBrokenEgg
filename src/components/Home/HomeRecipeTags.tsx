@@ -12,15 +12,19 @@ const HomeRecipeTags = ({
 	return (
 		<>
 			{cuisines.map(
-				(cuisine: string): JSX.Element => (
-					<span className="text-lg bg-main font-bold px-3 rounded-2xl">
+				(cuisine: string, index: number): JSX.Element => (
+					<span
+						className="text-lg bg-main font-bold px-3 rounded-2xl"
+						key={index}>
 						{cuisine}
 					</span>
 				)
 			)}
 			{dishTypes.map(
-				(type: string): JSX.Element => (
-					<span className="text-lg bg-main font-bold px-3 rounded-2xl">
+				(type: string, index: number): JSX.Element => (
+					<span
+						className="text-lg bg-main font-bold px-3 rounded-2xl"
+						key={index}>
 						{type}
 					</span>
 				)

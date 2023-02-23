@@ -22,8 +22,7 @@ module.exports = {
 				overlay: "rgba(255, 217, 130, 0.5)",
 			},
 			gridTemplateColumns: {
-				homemd: "1fr 4fr 1fr",
-				homelg: "1fr 6fr 1fr",
+				homelg: "1fr 4fr 1fr",
 				homexl: "1fr 8fr 1fr",
 			},
 			backgroundImage: {

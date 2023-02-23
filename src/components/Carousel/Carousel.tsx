@@ -62,9 +62,10 @@ const Carousel = ({ slides }: CarouselProps): JSX.Element => {
 				className="carousel-inner"
 				style={{ transform: `translateX(${-currentSlide * 100}%)` }}>
 				{slides.map(
-					(singular: Slides): JSX.Element => (
+					(singular: Slides, index: number): JSX.Element => (
 						<CarouselItem
 							{...singular}
+							key={index}
 							stopSlide={stopSlideTimer}
 							startSlide={startSlideTimer}
 						/>

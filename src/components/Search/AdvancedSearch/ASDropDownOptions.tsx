@@ -1,16 +1,18 @@
 import React from "react";
 
 interface OptionsProps {
-	title: string;
 	values: string[];
 }
 
-const DropDownSearch = ({ title, values }: OptionsProps): JSX.Element => {
+const DropDownSearch = ({ values }: OptionsProps): JSX.Element => {
 	return (
 		<>
 			{values?.map(
-				(item): JSX.Element => (
-					<option className="bg-background hover:bg-accent" value={item}>
+				(item: string, index: number): JSX.Element => (
+					<option
+						className="bg-background hover:bg-accent"
+						value={item}
+						key={index}>
 						{item}
 					</option>
 				)

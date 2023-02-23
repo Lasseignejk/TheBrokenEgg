@@ -23,7 +23,8 @@ const CarouselIndicators = ({
 					className={`carousel-indicator-item ${
 						currentIndex === index ? "active" : ""
 					}`}
-					onClick={() => switchIndex(index)}></button>
+					onClick={(): void => switchIndex(index)}
+					key={index}></button>
 			))}
 		</div>
 	);

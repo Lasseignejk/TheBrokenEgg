@@ -47,7 +47,7 @@ const CarouselItem = ({
 			className="carousel-item"
 			onMouseEnter={() => stopSlide}
 			onMouseOut={() => startSlide}>
-			<Link to={"/search/" + id} onClick={() => apiCall()}>
+			<Link to={"/search/" + id} onClick={(): Promise<void> => apiCall()}>
 				<img src={url} alt="" className="w-[400px]" />
 			</Link>
 		</div>
