@@ -34,8 +34,6 @@ const RecipeCard = ({ id, title, image }: RecipeProps): JSX.Element => {
 
 		const rawData: Response = await fetch(url);
 		const json: JSONInstructions[] = await rawData.json();
-		// console.log(json);
-
 		return dispatch(searchForInstructions(json));
 	};
 	return (

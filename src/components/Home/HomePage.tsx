@@ -6,8 +6,10 @@ import { featuredRecipe } from "./HomeData";
 import HomeFeaturedRecipe from "./HomeFeaturedRecipe";
 import LeftImage from "../LeftImage";
 import RightImage from "../RightImage";
+import { useDocumentTitle } from "../../util/hooks";
 
 const HomePage = (): JSX.Element => {
+	useDocumentTitle("The Broken Egg | Home");
 	return (
 		<div className="">
 			<div className=" min-h-[calc(100vh-14.3rem)] lg:grid  lg:grid-cols-homelg xl:grid-cols-homexl">

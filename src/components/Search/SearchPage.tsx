@@ -1,6 +1,10 @@
 import React from "react";
 
-import { useAppDispatch, useAppSelector } from "../../util/hooks";
+import {
+	useAppDispatch,
+	useAppSelector,
+	useDocumentTitle,
+} from "../../util/hooks";
 import { useState, useEffect } from "react";
 import { searchRecipe, reset } from "../../reducers/AllRecipesSlice";
 import RecipeCard from "./SearchRecipeCard";
@@ -19,6 +23,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const SearchPage = (): JSX.Element => {
+	useDocumentTitle("The Broken Egg | Search");
 	const recipes = useAppSelector((state) => state.recipes.results);
 
 	const dispatch = useAppDispatch();

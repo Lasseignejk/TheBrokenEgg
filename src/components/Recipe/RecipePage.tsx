@@ -1,6 +1,6 @@
 import React from "react";
 import InstructionsContainer from "./Instructions/InstructionsContainer";
-import { useAppSelector } from "../../util/hooks";
+import { useAppSelector, useDocumentTitle } from "../../util/hooks";
 import { JSONInstructions } from "../../util/Interfaces";
 import LeftImage from "../LeftImage";
 import RightImage from "../RightImage";
@@ -8,9 +8,7 @@ import RightImage from "../RightImage";
 const RecipePage = (): JSX.Element => {
 	const instructions = useAppSelector((state) => state.instructions);
 	const information = useAppSelector((state) => state.information);
-
-	// console.log(instructions);
-	// console.log(information);
+	useDocumentTitle(`The Broken Egg | ${information.title}`);
 
 	interface Ingredients {
 		measures?: {

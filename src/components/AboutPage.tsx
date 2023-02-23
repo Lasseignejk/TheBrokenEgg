@@ -1,9 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useDocumentTitle } from "../util/hooks";
 import LeftImage from "./LeftImage";
 import RightImage from "./RightImage";
 
 const AboutPage = (): JSX.Element => {
+	useDocumentTitle("The Broken Egg | About");
 	return (
 		<div className="">
 			<div className="min-h-[calc(100vh-14.3rem)] lg:grid lg:grid-cols-homemd xl:grid-cols-homexl">
