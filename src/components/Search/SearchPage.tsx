@@ -25,15 +25,11 @@ import "react-toastify/dist/ReactToastify.css";
 const SearchPage = (): JSX.Element => {
 	useDocumentTitle("The Broken Egg | Search");
 	const recipes = useAppSelector((state) => state.recipes.results);
-
 	const dispatch = useAppDispatch();
 
 	useEffect(() => {
 		dispatch(reset());
 	}, []);
-
-	const [recipeToSearch, setRecipeToSearch] = useState<string>("");
-	const [recipeParams, setRecipeParams] = useState<RecipeParamsState>({});
 
 	interface RecipeParamsState {
 		cuisine?: string;
@@ -45,6 +41,26 @@ const SearchPage = (): JSX.Element => {
 		maxReadyTime?: string;
 	}
 
+	interface JSONSearch {
+		results: [
+			{
+				id: number;
+				title: string;
+				image: string;
+				imageType: string;
+			}
+		];
+		totalResults: number;
+	}
+
+	interface Event {
+		target: HTMLSelectElement | HTMLInputElement;
+	}
+
+	interface CheckKeyE {
+		key: string;
+	}
+
 	const setParamsState = (e: Event): void => {
 		setRecipeParams({
 			...recipeParams,
@@ -52,9 +68,8 @@ const SearchPage = (): JSX.Element => {
 		});
 	};
 
-	interface Event {
-		target: HTMLSelectElement | HTMLInputElement;
-	}
+	const [recipeToSearch, setRecipeToSearch] = useState<string>("");
+	const [recipeParams, setRecipeParams] = useState<RecipeParamsState>({});
 
 	const formatParams = (recipeParams: RecipeParamsState): string => {
 		const formattedParams: string[] = [];
@@ -68,7 +83,9 @@ const SearchPage = (): JSX.Element => {
 
 	const apiCall = async (): Promise<Object | void> => {
 		const url: string =
-			import.meta.env.VITE_SEARCH_ALL_API +
+			"https://api.spoonacular.com/recipes/complexSearch?apiKey=" +
+			import.meta.env.VITE_APIKEY +
+			"&query=" +
 			recipeToSearch +
 			"&" +
 			formatParams(recipeParams);
@@ -88,17 +105,11 @@ const SearchPage = (): JSX.Element => {
 		);
 	};
 
-	interface JSONSearch {
-		results: [
-			{
-				id: number;
-				title: string;
-				image: string;
-				imageType: string;
-			}
-		];
-		totalResults: number;
-	}
+	const checkKeyDown = (e: CheckKeyE): void => {
+		if (e.key === "Enter") {
+			apiCall();
+		}
+	};
 
 	const showAdvancedSearch = (): void => {
 		const advancedSearchDiv: HTMLDivElement = document.querySelector(
@@ -271,6 +282,7 @@ const SearchPage = (): JSX.Element => {
 									onChange={(e) => setRecipeToSearch(e.target.value)}
 									value={recipeToSearch}
 									className="w-3/4 h-10 pl-4 text-xl rounded-2xl bg-background border-2 border-text"
+									onKeyDown={(e) => checkKeyDown(e)}
 								/>
 								<button
 									onClick={() => apiCall()}
@@ -287,7 +299,7 @@ const SearchPage = (): JSX.Element => {
 									)
 								)
 							) : (
-								<div className="flex justify-center items-center min-h-[calc(100vh-24rem)]">
+								<div className="flex justify-center items-center min-h-[calc(100vh-25rem)]">
 									<div className="flex flex-col px-3 justify-center items-center text-center gap-3 sm:w-3/4 md:w-2/3">
 										<p className="text-3xl">
 											Search for a recipe and let's get crackin'!

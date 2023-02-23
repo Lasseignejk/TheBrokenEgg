@@ -7,7 +7,7 @@ import SearchPage from "./components/Search/SearchPage";
 import AboutPage from "./components/AboutPage";
 import ErrorPage from "./components/ErrorPage";
 
-function App() {
+const App = (): JSX.Element => {
 	return (
 		<div className="flex flex-col justify-between min-h-screen">
 			<div>
@@ -28,6 +28,6 @@ function App() {
 			</div>
 		</div>
 	);
-}
+};
 
 export default App;

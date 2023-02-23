@@ -32,18 +32,14 @@ const CarouselItem = ({
 		const rawData: Response = await fetch(url);
 		const json: JSONInformation = await rawData.json();
 		return dispatch(searchForInformation(json));
-		// console.log(json);
 	};
 
 	const apiCallRecipeInstructions = async (): Promise<Object> => {
 		const url: string =
 			`https://api.spoonacular.com/recipes/${id}/analyzedInstructions?apiKey=` +
 			import.meta.env.VITE_APIKEY;
-
 		const rawData: Response = await fetch(url);
 		const json: JSONInstructions[] = await rawData.json();
-		// console.log(json);
-
 		return dispatch(searchForInstructions(json));
 	};
 	return (
