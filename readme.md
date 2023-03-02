@@ -6,6 +6,8 @@ Welcome to <b>The Broken Egg</b>, a recipe-searching site! Users can browse a fe
 
 <b>The Broken Egg</b> was built as my React/Redux project for my bootcamp with DigitalCrafts so there isn't a backend.
 
+Click [here](https://thebrokenegg.onrender.com/) to view the live site.
+
 Click [here](https://medium.com/@jayelonlasseigne/the-broken-egg-react-redux-typescript-project-7358591fc9e3) to read the Medium article I wrote on this project.
 
 <br>
